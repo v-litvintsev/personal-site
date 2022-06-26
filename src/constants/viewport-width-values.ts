@@ -1,0 +1,4 @@
+export const VIEWPORT_WIDTH_VALUES = {
+  TABLET: 480,
+  DESKTOP: 1140,
+}
