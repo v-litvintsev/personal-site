@@ -1,4 +1,4 @@
-import { ELocalStorageFields } from '../types/local-storage'
+import { ELocalStorageFields } from '../../types/local-storage'
 
 export const localStorageUtility = {
   set: (key: ELocalStorageFields, value: string) => {

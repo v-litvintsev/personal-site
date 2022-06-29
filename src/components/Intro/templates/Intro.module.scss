@@ -1,0 +1,97 @@
+@import '../../../styles/variables';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-primary);
+}
+
+.name {
+  opacity: 0;
+
+  &_loaded {
+    opacity: 1;
+  }
+}
+
+.namePart {
+  color: var(--primary);
+  font-size: 10vw;
+  white-space: nowrap;
+}
+
+.row {
+  width: 84.375vw;
+  display: flex;
+  align-items: center;
+}
+
+.decor {
+  width: 100%;
+  background: var(--primary);
+  height: $decor-width-mobile;
+  transform: scaleX(0);
+
+  &_1 {
+    margin-left: 8.4375vw;
+    transform-origin: left;
+  }
+
+  &_2 {
+    margin-right: 8.4375vw;
+  }
+}
+
+.nameSymbol {
+  display: inline-block;
+}
+
+@media (min-width: $viewport-width-tablet) {
+  .namePart {
+    font-size: 7.434vw;
+  }
+
+  .decor {
+    height: $decor-width-tablet;
+
+    &_1 {
+      margin-left: 5.52vw;
+    }
+
+    &_2 {
+      margin-right: 5.52vw;
+    }
+  }
+
+  .row {
+    width: 63vw;
+  }
+}
+
+@media (min-width: $viewport-width-desktop) {
+  .namePart {
+    font-size: 4.31vw;
+  }
+
+  .decor {
+    height: $decor-width-desktop;
+
+    &_1 {
+      margin-left: 4.03vw;
+    }
+
+    &_2 {
+      margin-right: 4.03vw;
+    }
+  }
+
+  .row {
+    width: 40.7vw;
+  }
+}

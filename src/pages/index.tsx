@@ -1,7 +1,8 @@
-import { NextPage } from "next";
+import { NextPage } from 'next'
+import Home from '../views/home'
 
 const HomePage: NextPage = () => {
-  return <>home</>;
-};
+  return <Home />
+}
 
-export default HomePage;
+export default HomePage

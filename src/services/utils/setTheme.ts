@@ -1,6 +1,6 @@
 import appState, { TTheme } from '../store/appState'
-import { ECSSVariableFields } from '../types/css-variables'
-import { ELocalStorageFields } from '../types/local-storage'
+import { ECSSVariableFields } from '../../types/css-variables'
+import { ELocalStorageFields } from '../../types/local-storage'
 import { localStorageUtility } from './localStorageUtility'
 import { setCSSVariable } from './setCSSVariable'
 

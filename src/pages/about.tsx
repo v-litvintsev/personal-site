@@ -1,7 +1,6 @@
-import { NextPage } from "next";
+import { NextPage } from 'next'
+import About from '../views/about'
 
-const AboutPage: NextPage = () => {
-  return <>about</>;
-};
+const AboutPage: NextPage = () => <About />
 
-export default AboutPage;
+export default AboutPage

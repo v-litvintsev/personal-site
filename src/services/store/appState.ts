@@ -1,13 +1,13 @@
 import { makeAutoObservable } from 'mobx'
 
 export type TTheme = 'light' | 'dark'
-type TViewportWidth = 'mobile' | 'tablet' | 'desktop'
-type TScreenType = 'touchpad' | 'mouse'
+type TViewportWidth = 'mobile' | 'tablet' | 'desktop' | null
+type TScreenType = 'touchpad' | 'mouse' | null
 
 class AppState {
   theme: TTheme = 'light'
-  viewportWidth: TViewportWidth = 'mobile'
-  screenType: TScreenType = 'touchpad'
+  viewportWidth: TViewportWidth = null
+  screenType: TScreenType = null
 
   constructor() {
     makeAutoObservable(this)
