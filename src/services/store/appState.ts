@@ -9,6 +9,8 @@ class AppState {
   viewportWidth: TViewportWidth = null
   screenType: TScreenType = null
 
+  hasScrollTriggerBeenInitialized = false
+
   constructor() {
     makeAutoObservable(this)
   }
@@ -23,6 +25,10 @@ class AppState {
 
   setScreenType(value: TScreenType) {
     this.screenType = value
+  }
+
+  setHasScrollTriggerBeenInitialized(value: boolean) {
+    this.hasScrollTriggerBeenInitialized = value
   }
 }
 

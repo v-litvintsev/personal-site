@@ -1,0 +1,29 @@
+@import '../../../styles/variables';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  display: none;
+}
+
+.input:checked ~ .checkbox .checkboxIndicator {
+  transform: translateX(80px);
+}
+
+.checkbox {
+  cursor: pointer;
+  width: 100px;
+  height: 20px;
+  background: var(--grey-2);
+  transition: $theme-change-transition;
+
+  &Indicator {
+    height: 20px;
+    width: 20px;
+    background: var(--primary);
+    transition: $theme-change-transition;
+  }
+}

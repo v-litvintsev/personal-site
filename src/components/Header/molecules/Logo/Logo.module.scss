@@ -1,0 +1,27 @@
+@import '../../../../styles/variables';
+
+.link {
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 35vw;
+  color: var(--difference-primary);
+  transition: $theme-change-transition;
+  mix-blend-mode: difference;
+  font-size: 4.6875vw;
+
+  &_dark {
+    color: var(--primary);
+    mix-blend-mode: normal;
+  }
+}
+
+.namePart {
+  &_2 {
+    align-self: flex-end;
+  }
+}

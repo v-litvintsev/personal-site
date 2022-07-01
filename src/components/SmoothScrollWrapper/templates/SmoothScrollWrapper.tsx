@@ -8,7 +8,7 @@ interface IProps {
 }
 
 export const SmoothScrollWrapper: FC<IProps> = observer(({ children }) =>
-  appState.screenType === 'mouse' && appState.viewportWidth === 'desktop' ? (
+  appState.screenType === 'mouse' ? (
     <DesktopScroll>{children}</DesktopScroll>
   ) : (
     <>{children}</>

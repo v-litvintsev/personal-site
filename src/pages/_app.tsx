@@ -6,7 +6,7 @@ import { useInitialVariableSetter } from '../services/hooks/useInitialVariableSe
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import '../styles/index.scss'
-// import 'locomotive-scroll/dist/locomotive-scroll.css'
+import Header from '../components/Header'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -18,11 +18,11 @@ const AppContainer = ({ Component, pageProps }: AppProps) => {
       <Head>
         <title>Vladimir Litvinstev | Creative web developer</title>
       </Head>
-      {/* WIP */}
-      {/* <SmoothScrollWrapper> */}
-      <Component {...pageProps} />
-      {/* </SmoothScrollWrapper> */}
-      <Intro />
+      <SmoothScrollWrapper>
+        <Component {...pageProps} />
+      </SmoothScrollWrapper>
+      <Header />
+      {/* <Intro /> */}
     </>
   )
 }
