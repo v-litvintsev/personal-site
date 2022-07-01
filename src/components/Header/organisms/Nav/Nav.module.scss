@@ -1,0 +1,36 @@
+@import '../../../../styles/variables';
+
+.mobileLink {
+  font-size: 4.6875vw;
+  position: relative;
+
+  @media (min-width: $viewport-width-tablet) {
+    font-size: 2.64vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    font-size: 1.39vw;
+  }
+
+  &Decor {
+    width: 100%;
+    background: var(--primary);
+    transition: $theme-change-transition;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: $decor-small-width-mobile;
+
+    @media (min-width: $viewport-width-tablet) {
+      height: $decor-small-width-tablet;
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      height: $decor-small-width-desktop;
+    }
+  }
+}
+
+.nav {
+  display: flex;
+}

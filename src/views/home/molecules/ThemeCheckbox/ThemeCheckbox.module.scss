@@ -1,0 +1,54 @@
+@import '../../../../styles/variables';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  display: none;
+}
+
+.input:checked ~ .checkbox .checkboxIndicator {
+  transform: translateX(100%);
+}
+
+.checkbox {
+  cursor: pointer;
+  width: 11vw;
+  height: 5.5vw;
+  background: var(--grey-2);
+  transition: $theme-change-transition;
+  border-radius: 5.5vw;
+  margin-right: 6.25vw;
+
+  @media (min-width: $viewport-width-tablet) {
+    width: 5.28vw;
+    height: 2.64vw;
+    margin-right: 3.84vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    width: 3.16vw;
+    height: 1.58vw;
+    margin-right: 2.22vw;
+  }
+
+  &Indicator {
+    height: 5.5vw;
+    width: 5.5vw;
+    background: var(--primary);
+    transition: $theme-change-transition;
+    border-radius: 5.5vw;
+
+    @media (min-width: $viewport-width-tablet) {
+      width: 2.64vw;
+      height: 2.64vw;
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      width: 1.58vw;
+      height: 1.58vw;
+    }
+  }
+}

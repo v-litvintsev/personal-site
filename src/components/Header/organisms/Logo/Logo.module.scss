@@ -1,22 +1,24 @@
 @import '../../../../styles/variables';
 
 .link {
-  pointer-events: all;
   cursor: pointer;
+  display: inline-block;
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
   width: 35vw;
-  color: var(--difference-primary);
-  transition: $theme-change-transition;
-  mix-blend-mode: difference;
   font-size: 4.6875vw;
 
-  &_dark {
-    color: var(--primary);
-    mix-blend-mode: normal;
+  @media (min-width: $viewport-width-tablet) {
+    width: 21vw;
+    font-size: 2.64vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    width: 11vw;
+    font-size: 1.39vw;
   }
 }
 

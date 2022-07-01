@@ -1,3 +1,6 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
 .wrapper {
   height: 100vh;
   position: relative;
@@ -7,4 +10,97 @@
   position: absolute;
   bottom: 7.8125vw;
   right: 7.8125vw;
+
+  @media (min-width: $viewport-width-tablet) {
+    bottom: 7.2vw;
+    right: 6.24vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    bottom: 3.2vw;
+    right: $external-padding-desktop;
+  }
+}
+
+.mainInfo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scrollDownMessage {
+  position: absolute;
+  bottom: 7.8125vw;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+
+  @include secondary-font-preset;
+
+  @media (min-width: $viewport-width-tablet) {
+    bottom: 7.2vw;
+    display: block;
+    font-size: 3vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    bottom: 3.2vw;
+    font-size: 1.53vw;
+  }
+}
+
+.title {
+  font-size: 11.5625vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: $viewport-width-tablet) {
+    font-size: 7.43vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    font-size: 4.31vw;
+  }
+}
+
+.secondary {
+  @include secondary-font-preset;
+  font-size: 5.3125vw;
+
+  &_1 {
+    margin-bottom: 5.3125vw;
+  }
+
+  &_2 {
+    margin-top: 5.3125vw;
+  }
+
+  @media (min-width: $viewport-width-tablet) {
+    font-size: 3vw;
+
+    &_1 {
+      margin-bottom: 6.12vw;
+    }
+
+    &_2 {
+      margin-top: 6.12vw;
+    }
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    font-size: 1.53vw;
+
+    &_1 {
+      margin-bottom: 2.15vw;
+    }
+
+    &_2 {
+      margin-top: 2.15vw;
+    }
+  }
 }

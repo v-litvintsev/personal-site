@@ -18,7 +18,7 @@ interface IThemeColors {
 const THEME_COLORS: IThemeColors = {
   light: {
     '--primary': '#111',
-    '--difference-primary': '#eaeaea',
+    '--difference-primary': '#ebebeb',
     '--bg-primary': '#fbfbfb',
     '--bg-text': '#e5e5e5',
     '--grey-1': '#f4f4f4',

@@ -1,16 +1,20 @@
 import { useEffect } from 'react'
 import { VIEWPORT_WIDTH_VALUES } from '../../constants/viewport-width-values'
+import { ELocalStorageFields } from '../../types/local-storage'
 import appState from '../store/appState'
+import { localStorageUtility } from '../utils/localStorageUtility'
 import { setTheme } from '../utils/setTheme'
 
 export const useInitialVariableSetter = () => {
   useEffect(() => {
     // theme
+    const storageTheme = localStorageUtility.get(ELocalStorageFields.theme)
+
     const isDarkTheme =
       window.matchMedia &&
       window.matchMedia('(prefers-color-scheme: dark)').matches
 
-    if (isDarkTheme) {
+    if ((isDarkTheme && !storageTheme) || storageTheme === 'dark') {
       setTheme('dark')
     }
 

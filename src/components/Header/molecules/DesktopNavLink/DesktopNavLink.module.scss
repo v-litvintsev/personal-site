@@ -1,0 +1,24 @@
+.link {
+  position: relative;
+  margin-left: 4.2vw;
+  font-size: 1.39vw;
+  text-align: center;
+
+  &_active {
+    font-weight: 800;
+    -webkit-text-stroke: var(--primary) 0.07vw;
+    color: transparent;
+  }
+}
+
+.decor {
+  position: absolute;
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) skewX(-14deg) scaleX(0);
+  background: var(--grey-2);
+  width: 9.6vw;
+  height: 3.75vw;
+  z-index: -1;
+}

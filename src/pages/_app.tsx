@@ -1,7 +1,6 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import Intro from '../components/Intro'
-import SmoothScrollWrapper from '../components/SmoothScrollWrapper'
 import { useInitialVariableSetter } from '../services/hooks/useInitialVariableSetter'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
@@ -18,9 +17,7 @@ const AppContainer = ({ Component, pageProps }: AppProps) => {
       <Head>
         <title>Vladimir Litvinstev | Creative web developer</title>
       </Head>
-      <SmoothScrollWrapper>
-        <Component {...pageProps} />
-      </SmoothScrollWrapper>
+      <Component {...pageProps} />
       <Header />
       {/* <Intro /> */}
     </>

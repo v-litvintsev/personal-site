@@ -8,6 +8,7 @@ class AppState {
   theme: TTheme = 'light'
   viewportWidth: TViewportWidth = null
   screenType: TScreenType = null
+  isScrolledUp = true
 
   hasScrollTriggerBeenInitialized = false
 
@@ -29,6 +30,10 @@ class AppState {
 
   setHasScrollTriggerBeenInitialized(value: boolean) {
     this.hasScrollTriggerBeenInitialized = value
+  }
+
+  setIsScrolledUp(value: boolean) {
+    this.isScrolledUp = value
   }
 }
 

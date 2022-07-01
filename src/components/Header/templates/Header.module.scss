@@ -1,7 +1,42 @@
+@import '../../../styles/variables';
+
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
-  padding: 7.8125vw;
-  pointer-events: none;
+  top: 7.8125vw;
+  left: 7.8125vw;
+  right: 7.8125vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.5s;
+
+  &_disabled {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-4vw);
+  }
+}
+
+@media (min-width: $viewport-width-tablet) {
+  .header {
+    left: 7.2vw;
+    right: 7.2vw;
+    top: 6.24vw;
+
+    &_disabled {
+      transform: translateY(-3vw);
+    }
+  }
+}
+
+@media (min-width: $viewport-width-desktop) {
+  .header {
+    left: $external-padding-desktop;
+    right: $external-padding-desktop;
+    top: 3.2vw;
+
+    &_disabled {
+      transform: translateY(-1vw);
+    }
+  }
 }
