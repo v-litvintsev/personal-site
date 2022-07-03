@@ -6,22 +6,29 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import '../styles/index.scss'
 import Header from '../components/Header'
+import { useWindowEventHandlersSetter } from '../services/hooks/useWindowEventHandlersSetter'
+import { FC } from 'react'
+import { observer } from 'mobx-react-lite'
+import SmoothScrollWrapper from '../components/SmoothScrollWrapper'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const AppContainer = ({ Component, pageProps }: AppProps) => {
+const AppContainer: FC<AppProps> = observer(({ Component, pageProps }) => {
   useInitialVariableSetter()
+  useWindowEventHandlersSetter()
 
   return (
     <>
       <Head>
         <title>Vladimir Litvinstev | Creative web developer</title>
       </Head>
-      <Component {...pageProps} />
+      <SmoothScrollWrapper>
+        <Component {...pageProps} />
+      </SmoothScrollWrapper>
       <Header />
-      {/* <Intro /> */}
+      <Intro />
     </>
   )
-}
+})
 
 export default AppContainer

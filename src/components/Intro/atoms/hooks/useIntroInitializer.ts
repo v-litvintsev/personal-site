@@ -1,20 +1,20 @@
 import { useEffect, useState } from 'react'
-import { getClassNamesByString } from '../../../../services/utils/getClassNamesByString'
+import appState from '../../../../services/store/appState'
 import { introAnimation } from '../animations/intro-animation'
-import { INTRO_ANIMATION_CLASSNAMES } from '../constants/animation-classnames'
 
 export const useIntroInitializer = (): boolean => {
   const [isPlaying, setIsPlaying] = useState(true)
 
-  const indicateTheEndOfTheAnimation = () => setIsPlaying(false)
+  const indicateTheEndOfTheAnimation = () => {
+    setIsPlaying(false)
+  }
+
+  const startNextAnimationsPrepare = () => {
+    appState.setIsIntroAnimationPlayed(true)
+  }
 
   useEffect(() => {
-    introAnimation({
-      indicateTheEndOfTheAnimation,
-      classNames: getClassNamesByString<typeof INTRO_ANIMATION_CLASSNAMES>(
-        INTRO_ANIMATION_CLASSNAMES
-      ),
-    })
+    introAnimation(indicateTheEndOfTheAnimation, startNextAnimationsPrepare)
   }, [])
 
   return isPlaying

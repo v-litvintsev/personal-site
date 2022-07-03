@@ -9,9 +9,13 @@ class AppState {
   viewportWidth: TViewportWidth = null
   screenType: TScreenType = null
   isScrolledUp = true
+  isIntroAnimationPlayed = false
+  isStartAnimationPlayed = false
 
   hasScrollTriggerBeenInitialized = false
   scroll: any = null
+
+  closePopupFunctions: (() => void)[] = []
 
   constructor() {
     makeAutoObservable(this)
@@ -39,6 +43,18 @@ class AppState {
 
   setScroll(value: any) {
     this.scroll = value
+  }
+
+  addClosePopupFunction(action: () => void) {
+    this.closePopupFunctions.push(action)
+  }
+
+  setIsIntroAnimationPlayed(value: boolean) {
+    this.isIntroAnimationPlayed = value
+  }
+
+  setIsStartAnimationPlayed(value: boolean) {
+    this.isStartAnimationPlayed = value
   }
 }
 

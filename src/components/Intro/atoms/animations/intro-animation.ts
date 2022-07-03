@@ -1,24 +1,15 @@
 import gsap, { Power4 } from 'gsap'
-import { IObject } from '../../../../types/globals'
+import { getClassNamesByString } from '../../../../services/utils/getClassNamesByString'
+import { INTRO_ANIMATION_CLASSNAMES } from '../constants/animation-classnames'
 
-interface IAnimationClassNames extends IObject {
-  container: string
-  contentWrapper: string
-  nameLetter1: string
-  nameLetter2: string
-  decor1: string
-  decor2: string
-}
+export const introAnimation = (
+  indicateTheEndOfTheAnimation: () => void,
+  startNextAnimationsPrepare: () => void
+) => {
+  const classNames = getClassNamesByString<typeof INTRO_ANIMATION_CLASSNAMES>(
+    INTRO_ANIMATION_CLASSNAMES
+  )
 
-interface IIntroAnimationArgs {
-  indicateTheEndOfTheAnimation: () => void
-  classNames: IAnimationClassNames
-}
-
-export const introAnimation = ({
-  indicateTheEndOfTheAnimation,
-  classNames,
-}: IIntroAnimationArgs) => {
   const timeline = gsap.timeline()
 
   timeline.delay(0.8)
@@ -113,6 +104,7 @@ export const introAnimation = ({
     opacity: 0,
     duration: 1,
     ease: Power4.easeIn,
+    onStart: startNextAnimationsPrepare,
     onComplete: indicateTheEndOfTheAnimation,
   })
 }

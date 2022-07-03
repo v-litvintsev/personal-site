@@ -12,9 +12,17 @@
   pointer-events: none;
 
   &_disabled {
-    pointer-events: none;
     opacity: 0;
     transform: translateY(-4vw);
+
+    .item {
+      pointer-events: none;
+    }
+  }
+
+  &_startAnimationIsNotPlayed {
+    opacity: 0;
+    pointer-events: none;
   }
 }
 

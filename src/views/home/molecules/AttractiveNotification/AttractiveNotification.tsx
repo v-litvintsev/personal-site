@@ -1,9 +1,11 @@
 import classNames from 'classnames'
-import { FC, useEffect, useState } from 'react'
+import { FC, useCallback, useEffect, useState } from 'react'
 import MailLinkIcon from '../../../../assets/svgs/MailLinkIcon'
 import MessagesCrossIcon from '../../../../assets/svgs/MessagesCrossIcon'
 import NotificationBell from '../../../../assets/svgs/NotificationBell'
 import { MY_MAIL } from '../../../../constants/my-mail'
+import appState from '../../../../services/store/appState'
+import { eventPropagationStopHandler } from '../../../../services/utils/eventPropagationStopHandler'
 import { localStorageUtility } from '../../../../services/utils/localStorageUtility'
 import {
   ELocalStorageFields,
@@ -11,19 +13,19 @@ import {
 } from '../../../../types/local-storage'
 import styles from './AttractiveNotification.module.scss'
 
-interface IProps {
-  appearanceDelay: number
-}
-
-export const AttractiveNotification: FC<IProps> = ({ appearanceDelay }) => {
+export const AttractiveNotification: FC = () => {
   const [isActive, setIsActive] = useState(false)
   const [isNotChecked, setIsNotChecked] = useState(false)
+
+  const closeNotification = useCallback(() => setIsActive(false), [])
 
   useEffect(() => {
     setIsNotChecked(
       !localStorageUtility.get(ELocalStorageFields.isNotificationMessageChecked)
     )
-  }, [])
+
+    appState.addClosePopupFunction(closeNotification)
+  }, [closeNotification])
 
   const handleOpenButtonClick = () => {
     setIsNotChecked(false)
@@ -34,14 +36,13 @@ export const AttractiveNotification: FC<IProps> = ({ appearanceDelay }) => {
     setIsActive(true)
   }
 
-  const handleCrossClick = () => setIsActive(false)
-
   return (
     <div
       className={classNames(
         styles.container,
         isActive && styles.container_active
       )}
+      onClick={eventPropagationStopHandler}
     >
       <div
         className={classNames(
@@ -88,7 +89,7 @@ export const AttractiveNotification: FC<IProps> = ({ appearanceDelay }) => {
           )}
         >
           <div className={styles.buttonWrapper}>
-            <button className={styles.crossButton} onClick={handleCrossClick}>
+            <button className={styles.crossButton} onClick={closeNotification}>
               <MessagesCrossIcon />
             </button>
           </div>

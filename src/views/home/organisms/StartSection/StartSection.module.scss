@@ -39,6 +39,7 @@
   left: 50%;
   transform: translateX(-50%);
   display: none;
+  white-space: pre;
 
   @include secondary-font-preset;
 
@@ -72,6 +73,7 @@
 .secondary {
   @include secondary-font-preset;
   font-size: 5.3125vw;
+  white-space: pre;
 
   &_1 {
     margin-bottom: 5.3125vw;
@@ -108,7 +110,8 @@
 
 .decor {
   background: var(--primary);
-  transition: $theme-change-transition;
+  transition: background $theme-change-transition;
+  transform: scaleX(0);
 
   @media (min-width: $viewport-width-tablet) {
     height: $decor-width-tablet;
@@ -118,6 +121,14 @@
   @media (min-width: $viewport-width-desktop) {
     height: $decor-width-desktop;
     width: 30%;
+  }
+
+  &_1 {
+    transform-origin: right;
+  }
+
+  &_2 {
+    transform-origin: left;
   }
 }
 
@@ -139,4 +150,12 @@
     width: 87.5vw;
     height: $decor-width-desktop;
   }
+}
+
+.animationSpanElement {
+  display: inline-block;
+}
+
+.bgText {
+  opacity: 0;
 }

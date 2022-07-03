@@ -27,17 +27,21 @@ export const OtherLanguageLink: FC<IProps> = observer(({ appearanceDelay }) => {
       ESessionStorageFields.isOtherLanguageLinkClosed
     )
 
-    setTimeout(() => {
-      setIsActive(!isLinkClosedBefore)
-    }, appearanceDelay * 1000)
-  }, [appearanceDelay])
+    if (appState.isStartAnimationPlayed) {
+      setTimeout(() => {
+        setIsActive(!isLinkClosedBefore)
+      }, appearanceDelay * 1000)
+    }
+
+    // eslint-disable-next-line
+  }, [appearanceDelay, appState.isStartAnimationPlayed])
 
   const handleClose = () => {
     sessionStorageUtility.set(
       ESessionStorageFields.isOtherLanguageLinkClosed,
       SESSION_STORAGE_VALUES.isOtherLanguageLinkClosed.closed
     )
-    
+
     setIsActive(false)
   }
 

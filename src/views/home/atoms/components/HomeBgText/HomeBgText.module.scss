@@ -1,0 +1,45 @@
+@import '../../../../../styles/variables';
+
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate($rotate-angle);
+  display: flex;
+  flex-direction: column;
+}
+
+.line {
+  &1 {
+    animation: text-animation 22s linear infinite;
+
+    @media (min-width: $viewport-width-tablet) {
+      animation-duration: 26s;
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      animation-duration: 42s;
+    }
+  }
+
+  &2 {
+    animation: text-animation 30s linear infinite reverse;
+
+    @media (min-width: $viewport-width-tablet) {
+      animation-duration: 28s;
+    }
+  }
+
+  &3 {
+    animation: text-animation 40s linear infinite;
+  }
+}
+
+@keyframes text-animation {
+  from {
+    transform: translateX(25.36%);
+  }
+  to {
+    transform: translateX(-25%);
+  }
+}

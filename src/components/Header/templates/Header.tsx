@@ -13,7 +13,9 @@ export const Header: FC = observer(() => {
     <header
       className={classNames(
         styles.header,
-        !appState.isScrolledUp && isMobile && styles.header_disabled
+        !appState.isScrolledUp && isMobile && styles.header_disabled,
+        !appState.isStartAnimationPlayed &&
+          styles.header_startAnimationIsNotPlayed
       )}
     >
       <div className={styles.item}>

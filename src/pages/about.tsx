@@ -1,11 +1,6 @@
 import { NextPage } from 'next'
-import SmoothScrollWrapper from '../components/SmoothScrollWrapper'
 import About from '../views/about'
 
-const AboutPage: NextPage = () => (
-  <SmoothScrollWrapper>
-    <About />
-  </SmoothScrollWrapper>
-)
+const AboutPage: NextPage = () => <About />
 
 export default AboutPage
