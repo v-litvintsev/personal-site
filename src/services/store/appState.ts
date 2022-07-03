@@ -11,6 +11,7 @@ class AppState {
   isScrolledUp = true
 
   hasScrollTriggerBeenInitialized = false
+  scroll: any = null
 
   constructor() {
     makeAutoObservable(this)
@@ -34,6 +35,10 @@ class AppState {
 
   setIsScrolledUp(value: boolean) {
     this.isScrolledUp = value
+  }
+
+  setScroll(value: any) {
+    this.scroll = value
   }
 }
 

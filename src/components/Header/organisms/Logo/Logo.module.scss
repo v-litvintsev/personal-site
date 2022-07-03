@@ -10,6 +10,8 @@
   flex-direction: column;
   width: 35vw;
   font-size: 4.6875vw;
+  color: var(--primary);
+  transition: $theme-change-transition;
 
   @media (min-width: $viewport-width-tablet) {
     width: 21vw;

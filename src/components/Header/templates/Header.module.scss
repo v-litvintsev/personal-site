@@ -8,13 +8,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: 0.5s;
+  transition: 0.5s, color 0s;
+  pointer-events: none;
 
   &_disabled {
     pointer-events: none;
     opacity: 0;
     transform: translateY(-4vw);
   }
+}
+
+.item {
+  pointer-events: all;
 }
 
 @media (min-width: $viewport-width-tablet) {

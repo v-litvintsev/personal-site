@@ -1,0 +1,173 @@
+@import '../../../../styles/variables';
+
+.container {
+  top: 27.8vw;
+  position: absolute;
+  left: 0;
+  height: 12.5vw;
+  width: 54.375vw;
+  background: var(--grey-2);
+  transition: background $theme-change-transition, 0.6s, color 0s;
+  display: flex;
+  align-items: center;
+  padding-left: 3.4375vw;
+
+  @media (min-width: $viewport-width-tablet) {
+    top: 20.1vw;
+    height: 6.475vw;
+    padding-left: 2.38vw;
+    width: 36vw;
+  }
+
+  &:not(&_active) {
+    opacity: 0;
+    transform: translateX(-3vw);
+    pointer-events: none;
+
+    @media (min-width: $viewport-width-tablet) {
+      transform: translateX(-1.5vw);
+    }
+  }
+
+  &_active .crossWrapper {
+    transform: rotate(0deg);
+  }
+}
+
+.link {
+  height: 100%;
+  display: flex;
+  font-size: 4.6875vw;
+  align-items: center;
+  width: 100%;
+  transform-origin: bottom;
+  transform: skewX($skew-angle);
+  background: inherit;
+
+  &Text {
+    position: absolute;
+    transform: skewX(calc(-1 * $skew-angle));
+    right: 8vw;
+
+    &Decor {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: var(--primary);
+      transition: $theme-change-transition;
+      height: $decor-small-width-mobile;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: $viewport-width-tablet) {
+    font-size: 2.64vw;
+
+    &Text {
+      right: 7.3vw;
+    }
+  }
+}
+
+.crossWrapper {
+  border-radius: 50%;
+  overflow: hidden;
+  min-width: 8.75vw;
+  height: 8.75vw;
+  transform: rotate(-30deg);
+  transition: 0.6s;
+
+  @media (min-width: $viewport-width-tablet) {
+    min-width: 4.32vw;
+    height: 4.32vw;
+  }
+}
+
+.cross {
+  background: var(--grey-1);
+  transition: background $theme-change-transition;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.desktopContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 1vw;
+  pointer-events: none;
+
+  &_active {
+    pointer-events: all;
+  }
+}
+
+.desktopCross {
+  height: 1.94vw;
+  width: 1.94vw;
+  background: var(--grey-2);
+  transition: $theme-change-transition;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+
+  transition: 0.7s 0.9s, background $theme-change-transition;
+  opacity: 0;
+  transform: scale(0.7) rotate(-30deg);
+
+  &:hover {
+    transition: 0.4s;
+    background: var(--grey-1);
+  }
+}
+
+.desktop {
+  &Container_active &Cross {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &Container_active &Link {
+    transform: skewX($skew-angle);
+    opacity: 1;
+  }
+}
+
+.desktopLink {
+  width: 13.26vw;
+  height: 4.375vw;
+  background: var(--grey-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 1vw;
+  font-size: 1.39vw;
+
+  transition: 0.8s, background $theme-change-transition, color 0s;
+  opacity: 0;
+  transform: skewX($skew-angle) translateY(-0.8vw);
+
+  &Text {
+    transform: skewX(calc(-1 * $skew-angle));
+  }
+
+  &Decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--grey-1);
+    z-index: -1;
+    transform: scaleX(0);
+  }
+}

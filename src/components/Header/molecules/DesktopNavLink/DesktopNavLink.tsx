@@ -2,8 +2,8 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC, useRef } from 'react'
-import { linkHoverEnterAnimation } from '../../atoms/animations/link-hover-enter'
-import { linkHoverExitAnimation } from '../../atoms/animations/link-hover-exit'
+import { linkHoverEnterAnimation } from '../../../../services/animations/link-hover-enter'
+import { linkHoverExitAnimation } from '../../../../services/animations/link-hover-exit'
 import styles from './DesktopNavLink.module.scss'
 
 interface IProps {

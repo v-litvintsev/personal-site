@@ -1,14 +1,20 @@
 import classNames from 'classnames'
 import { FC } from 'react'
 import { splitIntoElements } from '../../../../services/utils/splitIntoElements'
+import HomeBgText from '../../atoms/HomeBgText'
+import AttractiveNotification from '../../molecules/AttractiveNotification'
+import OtherLanguageLink from '../../molecules/OtherLanguageLink'
 import ThemeCheckbox from '../../molecules/ThemeCheckbox'
 import styles from './StartSection.module.scss'
 
 export const StartSection: FC = () => (
   <section className={styles.wrapper}>
-    <div className={styles.mainInfo}>
+    <HomeBgText />
+    <div className={styles.decorWrapper}>
       <div className={classNames(styles.decor, styles.decor_1)} />
       <div className={classNames(styles.decor, styles.decor_2)} />
+    </div>
+    <div className={styles.mainInfo}>
       <h4 className={classNames(styles.secondary, styles.secondary_1)}>
         creative
       </h4>
@@ -34,5 +40,7 @@ export const StartSection: FC = () => (
     <div className={styles.themeCheckbox}>
       <ThemeCheckbox />
     </div>
+    <OtherLanguageLink appearanceDelay={2} />
+    <AttractiveNotification appearanceDelay={3} />
   </section>
 )

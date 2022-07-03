@@ -22,6 +22,9 @@ a {
 
 button {
   cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
 }
 
 h1,
@@ -34,4 +37,8 @@ h6 {
   font-weight: 500;
   color: inherit;
   font-size: inherit;
+}
+
+p {
+  margin: 0;
 }

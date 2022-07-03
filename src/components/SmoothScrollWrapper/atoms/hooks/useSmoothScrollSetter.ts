@@ -10,11 +10,9 @@ import { SMOOTH_SCROLL_CONTAINER_CLASS_NAME } from '../constants/classNames'
 import appState from '../../../../services/store/appState'
 
 let isScrollInitialized = false
-let previousScrollValue = 0
 
-export const unsetScrollVars = () => {
+const unsetScrollVars = () => {
   isScrollInitialized = false
-  previousScrollValue = 0
 }
 
 export const useSmoothScrollSetter = (
@@ -35,6 +33,7 @@ export const useSmoothScrollSetter = (
           el: wrapperRef.current,
           smooth: true,
           lerp: 0.09,
+          multiplier: 0.9,
         })
 
         scroll.on(
@@ -43,8 +42,6 @@ export const useSmoothScrollSetter = (
             ScrollTrigger.update()
 
             setScrollProgressRatio(scrollY / scrollLimit)
-            appState.setIsScrolledUp(scrollY <= previousScrollValue)
-            previousScrollValue = scrollY
           }
         )
 
@@ -70,6 +67,7 @@ export const useSmoothScrollSetter = (
         ScrollTrigger.refresh()
 
         appState.setHasScrollTriggerBeenInitialized(true)
+        appState.setScroll(scroll)
       })()
     }
 
@@ -77,6 +75,7 @@ export const useSmoothScrollSetter = (
       if (scroll) {
         scroll.destroy()
         scroll = null
+        unsetScrollVars()
       }
     }
   }, [wrapperRef, setScrollProgressRatio])

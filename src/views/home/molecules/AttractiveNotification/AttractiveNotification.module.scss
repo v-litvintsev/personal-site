@@ -1,0 +1,337 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.container {
+  position: absolute;
+  right: 0;
+  top: 24.5875vw;
+  pointer-events: none;
+
+  @media (min-width: $viewport-width-tablet) {
+    top: 18.8vw;
+  }
+
+  @media (min-width: $viewport-width-tablet) {
+    top: 8vw;
+  }
+
+  &_active {
+    pointer-events: all;
+  }
+}
+
+.openButtonContainer {
+  width: 14.0625vw;
+  height: 14.0625vw;
+  border-radius: 50%;
+  background: var(--grey-2);
+  transition: 0.6s, background $theme-change-transition;
+  position: absolute;
+  right: 7.8125vw;
+  top: 2.5vw;
+  pointer-events: all;
+
+  @media (min-width: $viewport-width-tablet) {
+    width: 7.2vw;
+    height: 7.2vw;
+    right: 5.76vw;
+    top: 0.96vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    width: 4.24vw;
+    height: 4.24vw;
+    right: 6.25vw;
+    top: 0vw;
+  }
+
+  &_hidden {
+    transform: scale(0.8);
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.buttonWrapper {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.button {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--grey-2);
+  transition: 0.6s, background $theme-change-transition;
+
+  @media (min-width: $viewport-width-desktop) {
+    &::before {
+      content: '';
+      position: absolute;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: var(--grey-1);
+      transition: 0.4s, background $theme-change-transition;
+      transform: scale(0.7);
+      border-radius: 50%;
+    }
+
+    &:hover::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &RippleDecor {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    z-index: -1;
+
+    &_notChecked {
+      animation: open-button-ripple 1.5s infinite;
+
+      @media (min-width: $viewport-width-desktop) {
+        animation-name: open-button-ripple-desktop;
+      }
+    }
+  }
+
+  &Decor {
+    position: absolute;
+    border-radius: 50%;
+    background: $red;
+    width: 18%;
+    height: 18%;
+    top: 28%;
+    right: 28%;
+    transition: 0.6s;
+    opacity: 0;
+
+    &_active {
+      opacity: 1;
+    }
+  }
+}
+
+.bellIconWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+@keyframes open-button-ripple {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes open-button-ripple-desktop {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.crossContainer {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 8.75vw;
+  height: 8.75vw;
+  background: var(--grey-1);
+  pointer-events: none;
+  position: absolute;
+  top: 5vw;
+  right: 3.4375vw;
+
+  transform: rotate(30deg);
+  transition: 0.6s, background $theme-change-transition;
+  opacity: 0;
+
+  @media (min-width: $viewport-width-tablet) {
+    right: 2.38vw;
+    width: 4.32vw;
+    height: 4.32vw;
+    top: 2.4vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    height: 1.94vw;
+    width: 1.94vw;
+    top: 1.18vw;
+    right: -5.28vw;
+    background: var(--grey-2);
+
+    transition: 0.7s 0.9s, background $theme-change-transition;
+    opacity: 0;
+    transform: translateX(2vw) scale(0.7) rotate(-30deg);
+
+    &:hover {
+      transition: 0.4s;
+      background: var(--grey-1);
+    }
+  }
+
+  &_active {
+    transform: rotate(0deg);
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.crossButton {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.messageContainer {
+  width: 92.1875vw;
+  background: var(--grey-2);
+  padding: 6.875vw;
+  display: block;
+
+  transition: 0.6s, background $theme-change-transition, color 0s;
+  opacity: 0;
+  transform: translateX(3vw);
+  pointer-events: none;
+
+  @media (min-width: $viewport-width-tablet) {
+    width: 50vw;
+    padding: 2.88vw 3.48vw;
+    transform: translateX(1.5vw);
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    width: 31.81vw;
+    padding: 1.6vw 2.43vw;
+    transform: translateX(3vw);
+    background: none;
+    position: relative;
+    right: 8vw;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 105.5%;
+      height: 100%;
+      top: 0;
+      left: 50%;
+      background: var(--grey-2);
+      transition: $theme-change-transition;
+      transform: skewX($skew-angle) translateX(-50%);
+      z-index: -1;
+    }
+  }
+
+  &_active {
+    transform: translateX(0);
+    pointer-events: all;
+    opacity: 1;
+  }
+}
+
+.message {
+  max-width: 69.375vw;
+  font-size: 4.375vw;
+  line-height: 150%;
+
+  @media (min-width: $viewport-width-tablet) {
+    max-width: 36.2vw;
+    font-size: 2.28vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    max-width: 27.01vw;
+    font-size: 1.25vw;
+  }
+
+  @include secondary-font-preset;
+
+  &Mail {
+    display: flex;
+    align-items: center;
+    margin-top: 3.75vw;
+
+    @media (min-width: $viewport-width-tablet) {
+      margin-top: 1.8vw;
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      margin-top: 0.49vw;
+    }
+
+    &Text {
+      margin-left: 3.4375vw;
+      position: relative;
+
+      @media (min-width: $viewport-width-tablet) {
+        margin-left: 1.32vw;
+      }
+
+      @media (min-width: $viewport-width-desktop) {
+        margin-left: 1.04vw;
+      }
+    }
+
+    &Decor {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      height: $decor-small-width-mobile;
+      background: var(--primary);
+      transition: $theme-change-transition;
+
+      @media (min-width: $viewport-width-tablet) {
+        height: $decor-small-width-tablet;
+      }
+
+      @media (min-width: $viewport-width-desktop) {
+        height: $decor-small-width-desktop;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          transform-origin: right;
+          transform: translateX(-100%) scaleX(.05);
+          background: var(--grey-2);
+          transition: 1s, background $theme-change-transition;
+        }
+      }
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      &:hover &Decor::before {
+        transform: translateX(100%) scaleX(1);
+      }
+    }
+  }
+}

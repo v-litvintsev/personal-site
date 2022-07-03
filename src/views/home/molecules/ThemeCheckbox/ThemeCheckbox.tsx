@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import { ChangeEventHandler, FC } from 'react'
-import ThemeIcon from '../../../../assets/icons/ThemeIcon'
+import ThemeIcon from '../../../../assets/svgs/ThemeIcon'
 import appState from '../../../../services/store/appState'
 import { setTheme } from '../../../../services/utils/setTheme'
 import styles from './ThemeCheckbox.module.scss'

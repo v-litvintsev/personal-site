@@ -2,8 +2,4 @@
 
 .path {
   transition: $theme-change-transition;
-
-  @media (max-width: $viewport-width-tablet) {
-    transform: scale(0.78125);
-  }
 }

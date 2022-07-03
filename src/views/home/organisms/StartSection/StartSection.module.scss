@@ -4,6 +4,7 @@
 .wrapper {
   height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
 .themeCheckbox {
@@ -102,5 +103,40 @@
     &_2 {
       margin-top: 2.15vw;
     }
+  }
+}
+
+.decor {
+  background: var(--primary);
+  transition: $theme-change-transition;
+
+  @media (min-width: $viewport-width-tablet) {
+    height: $decor-width-tablet;
+    width: 15.1%;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    height: $decor-width-desktop;
+    width: 30%;
+  }
+}
+
+.decorWrapper {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @media (min-width: $viewport-width-tablet) {
+    display: flex;
+    justify-content: space-between;
+    width: 87.54vw;
+    height: $decor-width-tablet;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    width: 87.5vw;
+    height: $decor-width-desktop;
   }
 }
