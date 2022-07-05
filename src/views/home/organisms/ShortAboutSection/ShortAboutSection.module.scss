@@ -1,0 +1,38 @@
+@import '../../../../styles/variables';
+
+.sectionWrapper {
+  pointer-events: none;
+  user-select: none;
+  height: 200vh;
+  position: relative;
+  top: -60vh;
+  margin-bottom: -60vh;
+}
+
+.content {
+  font-size: 6.5625vw;
+  padding: 0 7.8125vw;
+  line-height: 150%;
+  white-space: pre-wrap;
+  height: 200vh;
+
+  @media (min-width: $viewport-width-tablet) {
+    font-size: 5.635vw;
+    padding: 0 6.235vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    font-size: 3.26vw;
+    padding: 0 12vw;
+  }
+}
+
+.text {
+  position: relative;
+  top: 50vh;
+  transform: translateY(-50%);
+}
+
+.word {
+  display: inline-block;
+}

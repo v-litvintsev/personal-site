@@ -7,4 +7,5 @@ export const START_SECTION_ANIMATION_CLASSNAMES = {
   descriptiveTextSymbol2: 'descriptive-text-symbol-2',
   bgText: 'start-section-bg-text',
   scrollDownSymbol: 'start-section-scroll-down-symbol',
+  fadeOutOnScrollElement: 'start-section-fade-out-element',
 }

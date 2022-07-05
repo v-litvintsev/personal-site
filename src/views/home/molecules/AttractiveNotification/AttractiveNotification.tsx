@@ -89,7 +89,11 @@ export const AttractiveNotification: FC = () => {
           )}
         >
           <div className={styles.buttonWrapper}>
-            <button className={styles.crossButton} onClick={closeNotification}>
+            <button
+              tabIndex={isActive ? 0 : -1}
+              className={styles.crossButton}
+              onClick={closeNotification}
+            >
               <MessagesCrossIcon />
             </button>
           </div>

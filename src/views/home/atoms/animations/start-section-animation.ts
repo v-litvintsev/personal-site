@@ -13,8 +13,6 @@ export const startSectionAnimation = (
   const timeline = gsap.timeline()
 
   if (!isHomeStartAnimationPlayed) {
-    timeline.delay(1.6)
-
     timeline.fromTo(
       classNames.descriptiveTextSymbol1,
       {
@@ -23,7 +21,9 @@ export const startSectionAnimation = (
       {
         opacity: 1,
         duration: 0.3,
-        stagger: 0.07,
+        stagger: 0.05,
+        ease: Power4.easeIn,
+        delay: 1.6,
       }
     )
 
@@ -36,8 +36,8 @@ export const startSectionAnimation = (
         opacity: 1,
         x: 0,
         duration: 0.4,
-        stagger: 0.55,
-        delay: 0.65,
+        stagger: 0.4,
+        delay: 0.9,
       }
     )
 
@@ -49,8 +49,9 @@ export const startSectionAnimation = (
       {
         opacity: 1,
         duration: 0.3,
-        stagger: 0.07,
-        delay: 0.65,
+        stagger: 0.05,
+        ease: Power4.easeIn,
+        delay: 0.35,
       }
     )
 
@@ -58,7 +59,7 @@ export const startSectionAnimation = (
       scaleX: 1,
       ease: Power4.easeOut,
       duration: 1.3,
-      delay: 0.8,
+      delay: 0.7,
     })
 
     timeline.to(classNames.bgText, {
@@ -89,13 +90,12 @@ export const startSectionAnimation = (
       {
         opacity: 1,
         duration: 0.3,
-        stagger: 0.07,
+        stagger: 0.05,
+        ease: Power4.easeIn,
         delay: 5,
       }
     )
   } else {
-    timeline.delay(0.5)
-
     timeline.to([classNames.decor1, classNames.decor2], {
       scaleX: 1,
       ease: Power4.easeOut,
@@ -118,7 +118,8 @@ export const startSectionAnimation = (
       {
         opacity: 1,
         duration: 0.3,
-        stagger: 0.07,
+        stagger: 0.06,
+        ease: Power4.easeIn,
         delay: 5,
       }
     )

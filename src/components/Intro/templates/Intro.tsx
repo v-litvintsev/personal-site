@@ -4,8 +4,9 @@ import styles from './Intro.module.scss'
 import { splitIntoElements } from '../../../services/utils/splitIntoElements'
 import { INTRO_ANIMATION_CLASSNAMES } from '../atoms/constants/animation-classnames'
 import { useIntroInitializer } from '../atoms/hooks/useIntroInitializer'
+import { observer } from 'mobx-react-lite'
 
-export const Intro: FC = () => {
+export const Intro: FC = observer(() => {
   const isAnimationPlaying = useIntroInitializer()
 
   if (!isAnimationPlaying) {
@@ -65,4 +66,4 @@ export const Intro: FC = () => {
       </div>
     </div>
   )
-}
+})

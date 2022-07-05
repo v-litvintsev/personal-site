@@ -4,6 +4,7 @@ import { FC } from 'react'
 import { splitIntoElements } from '../../../../services/utils/splitIntoElements'
 import HomeBgText from '../../atoms/components/HomeBgText'
 import { START_SECTION_ANIMATION_CLASSNAMES } from '../../atoms/constants/start-section-animation-classnames'
+import { useStartScrollBlocker } from '../../atoms/hooks/useStartScrollBlocker'
 import { useStartSectionAnimationsInitializer } from '../../atoms/hooks/useStartSectionAnimationsInitializer'
 import AttractiveNotification from '../../molecules/AttractiveNotification'
 import OtherLanguageLink from '../../molecules/OtherLanguageLink'
@@ -12,6 +13,7 @@ import styles from './StartSection.module.scss'
 
 export const StartSection: FC = observer(() => {
   useStartSectionAnimationsInitializer()
+  useStartScrollBlocker()
 
   return (
     <section className={styles.wrapper}>
@@ -23,7 +25,12 @@ export const StartSection: FC = observer(() => {
       >
         <HomeBgText />
       </div>
-      <div className={styles.decorWrapper}>
+      <div
+        className={classNames(
+          styles.decorWrapper,
+          START_SECTION_ANIMATION_CLASSNAMES.fadeOutOnScrollElement
+        )}
+      >
         <div
           className={classNames(
             styles.decor,
@@ -39,7 +46,12 @@ export const StartSection: FC = observer(() => {
           )}
         />
       </div>
-      <div className={styles.mainInfo}>
+      <div
+        className={classNames(
+          styles.mainInfo,
+          START_SECTION_ANIMATION_CLASSNAMES.fadeOutOnScrollElement
+        )}
+      >
         <h4 className={classNames(styles.secondary, styles.secondary_1)}>
           {splitIntoElements(
             'creative'.split(''),
@@ -89,7 +101,12 @@ export const StartSection: FC = observer(() => {
           )}
         </h4>
       </div>
-      <div className={styles.scrollDownMessage}>
+      <div
+        className={classNames(
+          styles.scrollDownMessage,
+          START_SECTION_ANIMATION_CLASSNAMES.fadeOutOnScrollElement
+        )}
+      >
         {splitIntoElements(
           'scroll down'.split(''),
           classNames(
@@ -101,7 +118,8 @@ export const StartSection: FC = observer(() => {
       <div
         className={classNames(
           styles.themeCheckbox,
-          START_SECTION_ANIMATION_CLASSNAMES.secondaryElement
+          START_SECTION_ANIMATION_CLASSNAMES.secondaryElement,
+          START_SECTION_ANIMATION_CLASSNAMES.fadeOutOnScrollElement
         )}
       >
         <ThemeCheckbox />

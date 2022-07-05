@@ -2,9 +2,12 @@
 
 .link {
   position: relative;
-  margin-left: 4.2vw;
   font-size: 1.39vw;
   text-align: center;
+
+  & + & {
+    margin-left: 4.2vw;
+  }
 
   &_active {
     font-weight: 800;

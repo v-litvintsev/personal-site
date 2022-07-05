@@ -14,7 +14,13 @@ export const useIntroInitializer = (): boolean => {
   }
 
   useEffect(() => {
-    introAnimation(indicateTheEndOfTheAnimation, startNextAnimationsPrepare)
+    const isDesktop = appState.viewportWidth === 'desktop'
+
+    introAnimation(
+      indicateTheEndOfTheAnimation,
+      startNextAnimationsPrepare,
+      isDesktop
+    )
   }, [])
 
   return isPlaying

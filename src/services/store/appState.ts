@@ -11,6 +11,7 @@ class AppState {
   isScrolledUp = true
   isIntroAnimationPlayed = false
   isStartAnimationPlayed = false
+  isHeaderHidden = false
 
   hasScrollTriggerBeenInitialized = false
   scroll: any = null
@@ -55,6 +56,10 @@ class AppState {
 
   setIsStartAnimationPlayed(value: boolean) {
     this.isStartAnimationPlayed = value
+  }
+
+  setIsHeaderHidden(value: boolean) {
+    this.isHeaderHidden = value
   }
 }
 

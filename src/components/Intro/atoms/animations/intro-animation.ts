@@ -1,14 +1,17 @@
-import gsap, { Power4 } from 'gsap'
+import gsap, { Power2, Power4 } from 'gsap'
 import { getClassNamesByString } from '../../../../services/utils/getClassNamesByString'
 import { INTRO_ANIMATION_CLASSNAMES } from '../constants/animation-classnames'
 
 export const introAnimation = (
   indicateTheEndOfTheAnimation: () => void,
-  startNextAnimationsPrepare: () => void
+  startNextAnimationsPrepare: () => void,
+  isDesktop: boolean
 ) => {
   const classNames = getClassNamesByString<typeof INTRO_ANIMATION_CLASSNAMES>(
     INTRO_ANIMATION_CLASSNAMES
   )
+
+  const lettersStartX = isDesktop ? '1.5vw' : '3vw'
 
   const timeline = gsap.timeline()
 
@@ -22,9 +25,10 @@ export const introAnimation = (
     classNames.nameLetter1,
     {
       opacity: 0,
-      x: '3vw',
+      x: lettersStartX,
     },
     {
+      ease: Power2.easeOut,
       opacity: 1,
       x: 0,
       duration: 0.5,
@@ -36,9 +40,10 @@ export const introAnimation = (
     classNames.nameLetter2,
     {
       opacity: 0,
-      x: '3vw',
+      x: lettersStartX,
     },
     {
+      ease: Power2.easeOut,
       opacity: 1,
       x: 0,
       duration: 0.5,
@@ -55,7 +60,7 @@ export const introAnimation = (
     scaleX: 1,
     duration: 0.8,
     ease: Power4.easeOut,
-    delay: -0.6,
+    delay: -0.59,
   })
 
   timeline.set(classNames.decor2, {

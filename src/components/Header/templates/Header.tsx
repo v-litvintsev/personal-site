@@ -15,7 +15,8 @@ export const Header: FC = observer(() => {
         styles.header,
         !appState.isScrolledUp && isMobile && styles.header_disabled,
         !appState.isStartAnimationPlayed &&
-          styles.header_startAnimationIsNotPlayed
+          styles.header_startAnimationIsNotPlayed,
+        appState.isHeaderHidden && styles.header_disabled
       )}
     >
       <div className={styles.item}>

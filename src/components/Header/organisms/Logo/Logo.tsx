@@ -16,10 +16,10 @@ export const Logo: FC = observer(() => {
       const isDesktop = appState.viewportWidth === 'desktop'
 
       if (isDesktop && appState.scroll) {
-        return appState.scroll.scrollTo(0)
+        appState.scroll.scrollTo(0, { duration: 300 })
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       }
-
-      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
 

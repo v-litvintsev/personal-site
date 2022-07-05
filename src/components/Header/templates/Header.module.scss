@@ -18,6 +18,10 @@
     .item {
       pointer-events: none;
     }
+
+    @media (min-width: $viewport-width-desktop) {
+      transform: translateY(-1.5vw);
+    }
   }
 
   &_startAnimationIsNotPlayed {

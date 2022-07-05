@@ -3,12 +3,18 @@ import appState from '../store/appState'
 
 // the component in which the hook is used must be wrapped in an Mobx observer
 
-export const useAnimationSetter = (callback: () => void) => {
-  const mobile = appState.screenType === 'touchpad'
+type TCallback = (() => void) | (() => () => void)
+
+export const useAnimationSetter = (callback: TCallback) => {
+  const isMobile = appState.screenType === 'touchpad'
 
   useEffect(() => {
-    if (mobile || appState.hasScrollTriggerBeenInitialized) {
-      callback()
+    if (isMobile || appState.hasScrollTriggerBeenInitialized) {
+      const onUnmountHandler = callback()
+
+      if (onUnmountHandler) {
+        return onUnmountHandler
+      }
     }
     // eslint-disable-next-line
   }, [callback, appState.hasScrollTriggerBeenInitialized])

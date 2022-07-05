@@ -2,13 +2,19 @@
 
 body {
   margin: 0;
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-style: italic;
   font-weight: 500;
   text-transform: uppercase;
   background: var(--bg-primary);
   color: var(--primary);
   transition: $theme-change-transition;
+
+  @media (min-width: $viewport-width-desktop) {
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
 
 ::selection {
