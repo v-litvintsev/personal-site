@@ -4,7 +4,12 @@ import { getClassNamesByString } from '../../../../services/utils/getClassNamesB
 import { SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES } from '../constants/short-about-section-animation-classnames'
 import { START_SECTION_ANIMATION_CLASSNAMES } from '../constants/start-section-animation-classnames'
 
-export const shortAboutSectionAnimation = (isDesktop: boolean) => {
+const startSectionFadeOutElement = `.${START_SECTION_ANIMATION_CLASSNAMES.fadeOutOnScrollElement}`
+
+export const shortAboutSectionAnimation = (
+  isDesktop: boolean,
+  isTablet: boolean
+) => {
   const classNames = getClassNamesByString<
     typeof SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES
   >(SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES)
@@ -13,25 +18,28 @@ export const shortAboutSectionAnimation = (isDesktop: boolean) => {
     isDesktop && appState.setIsHeaderHidden(value)
   }
 
-  gsap.fromTo(
+  const wordsAnimation = gsap.fromTo(
     classNames.word,
     {
       opacity: 0,
       y: isDesktop ? '3.5vh' : '0',
-      filter: isDesktop ? 'blur(0.2vw)' : 'none',
+      filter:
+        isDesktop && window.navigator.hardwareConcurrency >= 8
+          ? 'blur(0.3vw)'
+          : '',
     },
     {
+      filter: 'blur(0vw)',
       opacity: 1,
       y: 0,
-      filter: isDesktop ? 'blur(0vw)' : 'none',
-      stagger: 0.1,
+      stagger: isDesktop ? 0.7 : 0.4,
       ease: Power4.easeOut,
-      duration: 2,
+      duration: 10,
       scrollTrigger: {
         trigger: classNames.wrapper,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: isDesktop ? 1 : true,
+        scrub: true,
         pin: true,
         onEnter: () => setIsHeaderHidden(true),
         onEnterBack: () => setIsHeaderHidden(true),
@@ -41,7 +49,7 @@ export const shortAboutSectionAnimation = (isDesktop: boolean) => {
     }
   )
 
-  gsap.to(`.${START_SECTION_ANIMATION_CLASSNAMES.fadeOutOnScrollElement}`, {
+  const startSectionFadeOutAnimation = gsap.to(startSectionFadeOutElement, {
     opacity: 0,
     ease: Power1.easeOut,
     scrollTrigger: {
@@ -52,7 +60,8 @@ export const shortAboutSectionAnimation = (isDesktop: boolean) => {
     },
   })
 
-  isDesktop &&
+  const textAnimation =
+    (isDesktop || isTablet) &&
     gsap.fromTo(
       classNames.text,
       {
@@ -67,7 +76,14 @@ export const shortAboutSectionAnimation = (isDesktop: boolean) => {
           start: 'top top',
           end: 'bottom bottom',
           scrub: true,
+          pin: true,
         },
       }
     )
+
+  return () => {
+    ;[wordsAnimation, startSectionFadeOutAnimation, textAnimation].forEach(
+      (animation) => animation && animation.pause().kill()
+    )
+  }
 }

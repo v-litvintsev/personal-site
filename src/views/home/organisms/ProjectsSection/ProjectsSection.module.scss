@@ -1,0 +1,71 @@
+@import '../../../../styles/variables';
+
+.wrapper {
+  position: relative;
+  padding: 0 0 12.5vw;
+  overflow: hidden;
+
+  @media (min-width: $viewport-width-tablet) {
+    padding: 0 0 4.8vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    padding: 2vw 11.9vw;
+    margin-bottom: 6.68vw;overflow: visible;
+  }
+}
+
+.decor {
+  height: $decor-width-mobile;
+  background: var(--primary);
+  transition: background $theme-change-transition;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media (min-width: $viewport-width-tablet) {
+    height: $decor-width-tablet;
+    width: 87.53%;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    height: $decor-width-desktop;
+    width: 100%;
+    transition: 0.5s;
+  }
+
+  &_active {
+    transform: translateX(-50%) scaleX(1.1478);
+  }
+
+  &_lastItem {
+    top: -$decor-width-mobile;
+    width: 84.375%;
+
+    @media (min-width: $viewport-width-tablet) {
+      top: -$decor-width-tablet;
+      width: 87.53%;
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      top: -$decor-width-desktop;
+      width: 100%;
+    }
+  }
+}
+
+.lastDecorContainer {
+  position: relative;
+  height: 0;
+}
+
+.bgTextWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}

@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import { FC } from 'react'
-import { StartSectionMobileBgText } from '../../../../../assets/svgs/bg-text/StartSectionBgText'
+import { StartSectionMobileBgText } from '../../../../../assets/svgs/bg-text/StartSectionBgTextSvg'
 import appState from '../../../../../services/store/appState'
 import styles from './HomeBgText.module.scss'
 

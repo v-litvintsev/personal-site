@@ -9,13 +9,11 @@
   height: 100%;
   width: $decor-width-mobile;
   pointer-events: none;
-
-  @media (min-width: $viewport-width-tablet) {
-    width: $decor-width-tablet;
-  }
+  display: none;
 
   @media (min-width: $viewport-width-desktop) {
     width: $decor-width-desktop;
+    display: block;
   }
 }
 

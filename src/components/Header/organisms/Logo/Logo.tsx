@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC, MouseEventHandler } from 'react'
+import { MY_INITIALS } from '../../../../content/general-content'
 import appState from '../../../../services/store/appState'
 import styles from './Logo.module.scss'
 
@@ -28,10 +29,10 @@ export const Logo: FC = observer(() => {
       <a className={styles.link} onClick={handleClick}>
         <span className={styles.wrapper}>
           <span className={classNames(styles.namePart, styles.namePart_1)}>
-            vladimir
+            {MY_INITIALS.firstName}
           </span>
           <span className={classNames(styles.namePart, styles.namePart_2)}>
-            litvintsev
+            {MY_INITIALS.lastName}
           </span>
         </span>
       </a>

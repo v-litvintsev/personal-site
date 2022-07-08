@@ -7,15 +7,36 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import '../styles/index.scss'
 import Header from '../components/Header'
 import { useWindowEventHandlersSetter } from '../services/hooks/useWindowEventHandlersSetter'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { observer } from 'mobx-react-lite'
 import SmoothScrollWrapper from '../components/SmoothScrollWrapper'
+import { useRouter } from 'next/router'
+import appState from '../services/store/appState'
+import { unsetScrollVars } from '../components/SmoothScrollWrapper/atoms/hooks/useSmoothScrollSetter'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const AppContainer: FC<AppProps> = observer(({ Component, pageProps }) => {
+  const router = useRouter()
+
   useInitialVariableSetter()
   useWindowEventHandlersSetter()
+
+  // Dirty hack
+  useEffect(() => {
+    const handleRouteChangeStart = () => {
+      if (appState.scroll) {
+        appState.scroll.destroy()
+        unsetScrollVars()
+      }
+    }
+
+    router.events.on('routeChangeStart', handleRouteChangeStart)
+
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChangeStart)
+    }
+  }, [router.events])
 
   return (
     <>

@@ -2,6 +2,7 @@ import { observer } from 'mobx-react-lite'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
+import { HEADER_LINKS } from '../../../../content/general-content'
 import appState from '../../../../services/store/appState'
 import {
   LINK_NAME_BY_PREVIOUS_PATHNAME,
@@ -33,8 +34,9 @@ export const Nav: FC = observer(() => {
 
   return (
     <nav className={styles.nav}>
-      <DesktopNavLink name="home" path="/" />
-      <DesktopNavLink name="about" path="/about" />
+      {HEADER_LINKS.map(({ name, path }) => (
+        <DesktopNavLink key={path} name={name} path={path} />
+      ))}
     </nav>
   )
 })

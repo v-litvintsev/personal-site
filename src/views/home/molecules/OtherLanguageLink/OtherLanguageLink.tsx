@@ -3,7 +3,6 @@ import { observer } from 'mobx-react-lite'
 import { FC, useEffect, useRef, useState } from 'react'
 import MessagesCrossIcon from '../../../../assets/svgs/MessagesCrossIcon'
 import { linkHoverEnterAnimation } from '../../../../services/animations/link-hover-enter'
-import { OTHER_LANGUAGE_LINK } from '../../../../constants/other-language-link'
 import appState from '../../../../services/store/appState'
 import styles from './OtherLanguageLink.module.scss'
 import { linkHoverExitAnimation } from '../../../../services/animations/link-hover-exit'
@@ -12,6 +11,7 @@ import {
   ESessionStorageFields,
   SESSION_STORAGE_VALUES,
 } from '../../../../types/session-storage'
+import { OTHER_LANGUAGE_LINK } from '../../../../content/general-content'
 
 interface IProps {
   appearanceDelay: number
@@ -61,13 +61,15 @@ export const OtherLanguageLink: FC<IProps> = observer(({ appearanceDelay }) => {
         </button>
         <a
           className={styles.desktopLink}
-          href={OTHER_LANGUAGE_LINK}
+          href={OTHER_LANGUAGE_LINK.path}
           target="_blank"
           rel="noopener noreferrer"
           onMouseEnter={onLinkMouseEnter}
           onMouseLeave={onLinkMouseLeave}
         >
-          <span className={styles.desktopLinkText}>ru версия</span>
+          <span className={styles.desktopLinkText}>
+            {OTHER_LANGUAGE_LINK.text}
+          </span>
           <span ref={decorRef} className={styles.desktopLinkDecor} />
         </a>
       </div>
@@ -88,13 +90,14 @@ export const OtherLanguageLink: FC<IProps> = observer(({ appearanceDelay }) => {
       </div>
       <a
         className={styles.link}
-        href={OTHER_LANGUAGE_LINK}
+        href={OTHER_LANGUAGE_LINK.path}
         target="_blank"
         rel="noopener noreferrer"
       >
         <span className={styles.linkBg} />
         <span className={styles.linkText}>
-          ru версия<span className={styles.linkTextDecor}></span>
+          {OTHER_LANGUAGE_LINK.text}
+          <span className={styles.linkTextDecor}></span>
         </span>
       </a>
     </div>

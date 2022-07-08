@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import { observer } from 'mobx-react-lite'
 import { FC } from 'react'
+import { START_SECTION_CONTENT } from '../../../../content/home/start'
 import { splitIntoElements } from '../../../../services/utils/splitIntoElements'
 import HomeBgText from '../../atoms/components/HomeBgText'
 import { START_SECTION_ANIMATION_CLASSNAMES } from '../../atoms/constants/start-section-animation-classnames'
@@ -54,7 +55,7 @@ export const StartSection: FC = observer(() => {
       >
         <h4 className={classNames(styles.secondary, styles.secondary_1)}>
           {splitIntoElements(
-            'creative'.split(''),
+            START_SECTION_CONTENT.mainInfo.secondaryText1.split(''),
             classNames(
               styles.animationSpanElement,
               START_SECTION_ANIMATION_CLASSNAMES.descriptiveTextSymbol1
@@ -69,7 +70,7 @@ export const StartSection: FC = observer(() => {
                 START_SECTION_ANIMATION_CLASSNAMES.mainTextElement
               )}
             >
-              developer
+              {START_SECTION_CONTENT.mainInfo.titlePart1}
             </span>
           </h1>
           <h1 className={styles.titleRow}>
@@ -79,7 +80,7 @@ export const StartSection: FC = observer(() => {
                 START_SECTION_ANIMATION_CLASSNAMES.mainTextElement
               )}
             >
-              &{' '}
+              {START_SECTION_CONTENT.mainInfo.titlePart2}
             </span>
             <span
               className={classNames(
@@ -87,13 +88,13 @@ export const StartSection: FC = observer(() => {
                 START_SECTION_ANIMATION_CLASSNAMES.mainTextElement
               )}
             >
-              designer
+              {START_SECTION_CONTENT.mainInfo.titlePart3}
             </span>
           </h1>
         </div>
         <h4 className={classNames(styles.secondary, styles.secondary_2)}>
           {splitIntoElements(
-            'from russia'.split(''),
+            START_SECTION_CONTENT.mainInfo.secondaryText2.split(''),
             classNames(
               styles.animationSpanElement,
               START_SECTION_ANIMATION_CLASSNAMES.descriptiveTextSymbol2
@@ -108,7 +109,7 @@ export const StartSection: FC = observer(() => {
         )}
       >
         {splitIntoElements(
-          'scroll down'.split(''),
+          START_SECTION_CONTENT.scrollDown.split(''),
           classNames(
             styles.animationSpanElement,
             START_SECTION_ANIMATION_CLASSNAMES.scrollDownSymbol

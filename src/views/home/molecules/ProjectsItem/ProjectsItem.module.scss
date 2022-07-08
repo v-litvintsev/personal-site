@@ -1,0 +1,249 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.item {
+  position: relative;
+
+  & + & {
+    margin-top: -$decor-width-mobile;
+
+    @media (min-width: $viewport-width-tablet) {
+      margin-top: -$decor-width-tablet;
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      margin-top: -$decor-width-desktop;
+    }
+  }
+}
+
+.decors {
+  position: absolute;
+  width: 84.375%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: space-between;
+  pointer-events: none;
+
+  @media (min-width: $viewport-width-tablet) {
+    width: 87.53%;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    width: 100%;
+  }
+
+  .decor {
+    height: $decor-width-mobile;
+    background: var(--primary);
+    transition: background $theme-change-transition;
+
+    @media (min-width: $viewport-width-tablet) {
+      height: $decor-width-tablet;
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      height: $decor-width-desktop;
+    }
+  }
+}
+
+.content {
+  padding: 16.875vw 7.8125vw 10.9375vw;
+
+  @media (min-width: $viewport-width-tablet) {
+    padding: 16.067vw 6.235vw 4.8vw;
+  }
+}
+
+.mobileTitle {
+  position: relative;
+  margin-bottom: 28.125vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate($rotate-angle);
+
+  @media (min-width: $viewport-width-tablet) {
+    margin-bottom: 15.95vw;
+  }
+}
+
+.domain {
+  font-size: 6.25vw;
+  white-space: nowrap;
+  position: relative;
+
+  @media (min-width: $viewport-width-tablet) {
+    font-size: 5.635vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    font-size: 2.847vw;
+  }
+}
+
+.bgText {
+  position: absolute;
+
+  &_notCentered {
+    transform: translateY(-1.5vw);
+  }
+}
+
+.tags {
+  @include secondary-font-preset;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  line-height: 150%;
+  font-size: 4.375vw;
+  margin-bottom: 6.875vw;
+
+  @media (min-width: $viewport-width-tablet) {
+    align-items: center;
+    font-size: 2.278vw;
+    margin-bottom: 4.77vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    align-items: flex-start;
+    font-size: 1.25vw;
+    margin-bottom: 0.2083vw;
+    width: 17.83vw;
+  }
+
+  &Item {
+    & + & {
+      margin-top: 0.625vw;
+
+      @media (min-width: $viewport-width-tablet) {
+        margin-top: 0.36vw;
+      }
+    }
+  }
+}
+
+.preview {
+  padding-bottom: 3.59375vw;
+
+  @media (min-width: $viewport-width-tablet) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 2.398vw;
+  }
+
+  &Button {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3.59375vw;
+    overflow: hidden;
+    padding-right: 3vw;
+
+    @media (min-width: $viewport-width-tablet) {
+      margin-bottom: 2.398vw;
+      padding-right: 1vw;
+    }
+
+    &Text {
+      font-size: 4.6875vw;
+
+      @media (min-width: $viewport-width-tablet) {
+        font-size: 2.638vw;
+      }
+    }
+
+    &Icon {
+      width: 9.375vw;
+      height: 9.375vw;
+      margin-right: 6.25vw;
+      background: var(--grey-1);
+      transition: background $theme-change-transition;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: 0.4s;
+
+      @media (min-width: $viewport-width-tablet) {
+        width: 4.317vw;
+        height: 4.317vw;
+        margin-right: 3.717vw;
+      }
+
+      &_active {
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &ImageWrapper {
+    height: 0px;
+    transition: 0.4s;
+    overflow: hidden;
+  }
+}
+
+.link {
+  font-size: 4.6875vw;
+  width: 46.25vw;
+  height: 14.0625vw;
+  background: var(--grey-1);
+  transition: background $theme-change-transition;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: $viewport-width-tablet) {
+    font-size: 2.638vw;
+    width: 22.78vw;
+    height: 6.834vw;
+  }
+
+  &Text {
+    transform: skewX(-$skew-angle);
+  }
+
+  &Button {
+    transition: 0.12s;
+    transform: skewX($skew-angle);
+
+    &:active {
+      transform: skewX($skew-angle) scale(0.97);
+    }
+  }
+
+  &Wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.desktopContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 11vw;
+  overflow: hidden;
+
+  .domain {
+    transition: 0.7s;
+    pointer-events: none;
+  }
+
+  .tags {
+    pointer-events: none;
+  }
+
+  &:hover {
+    .domain {
+      transform: rotate($rotate-angle);
+    }
+  }
+}

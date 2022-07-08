@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import { observer } from 'mobx-react-lite'
 import { FC } from 'react'
+import { SHORT_ABOUT_TEXT } from '../../../../content/home/short-about'
 import { useAnimationSetter } from '../../../../services/hooks/useAnimationSetter'
 import appState from '../../../../services/store/appState'
 import { shortAboutSectionAnimation } from '../../atoms/animations/short-about-section-animation'
@@ -11,11 +12,12 @@ import styles from './ShortAboutSection.module.scss'
 export const ShortAboutSection: FC = observer(() => {
   const isDesktop =
     appState.viewportWidth === 'desktop' && appState.screenType === 'mouse'
+  const isTablet = appState.viewportWidth === 'tablet'
 
-  useAnimationSetter(() => shortAboutSectionAnimation(isDesktop))
+  useAnimationSetter(() => shortAboutSectionAnimation(isDesktop, isTablet))
 
   return (
-    <section className={classNames(styles.sectionWrapper, 'asdf')}>
+    <section className={styles.sectionWrapper}>
       <div
         className={classNames(
           styles.content,
@@ -28,16 +30,13 @@ export const ShortAboutSection: FC = observer(() => {
             SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES.text
           )}
         >
-          {shortAboutTextParser(
-            `Hi! I'm a Fullstack TypeScript developer and UI/UX designer, lately I focused on creative development. Before that I've been doing landings, multi-page sites, web services and chatbots. My projects:`,
-            {
-              word: classNames(
-                styles.word,
-                SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES.word
-              ),
-              noWrapWord: styles.word_noWrap,
-            }
-          )}
+          {shortAboutTextParser(SHORT_ABOUT_TEXT, {
+            word: classNames(
+              styles.word,
+              SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES.word
+            ),
+            noWrapWord: styles.word_noWrap,
+          })}
         </div>
       </div>
     </section>

@@ -3,7 +3,8 @@ import { FC, useCallback, useEffect, useState } from 'react'
 import MailLinkIcon from '../../../../assets/svgs/MailLinkIcon'
 import MessagesCrossIcon from '../../../../assets/svgs/MessagesCrossIcon'
 import NotificationBell from '../../../../assets/svgs/NotificationBell'
-import { MY_MAIL } from '../../../../constants/my-mail'
+import { MY_MAIL } from '../../../../content/general-content'
+import { START_SECTION_CONTENT } from '../../../../content/home/start'
 import appState from '../../../../services/store/appState'
 import { eventPropagationStopHandler } from '../../../../services/utils/eventPropagationStopHandler'
 import { localStorageUtility } from '../../../../services/utils/localStorageUtility'
@@ -100,7 +101,7 @@ export const AttractiveNotification: FC = () => {
         </div>
         <div className={styles.message}>
           <p className={styles.messageText}>
-            I&apos;m available for freelance work now
+            {START_SECTION_CONTENT.attractiveNotification}
           </p>
           <p className={styles.messageText}>Tell me about your project</p>
           <div className={styles.messageMail}>

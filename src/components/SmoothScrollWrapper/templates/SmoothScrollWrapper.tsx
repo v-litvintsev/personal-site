@@ -1,18 +1,28 @@
 import { observer } from 'mobx-react-lite'
-import { FC, ReactElement } from 'react'
+import { FC, ReactElement, useEffect, useState } from 'react'
 import appState from '../../../services/store/appState'
+import { SMOOTH_SCROLL_CONTAINER_CLASS_NAME } from '../atoms/constants/classNames'
 import { useMobileScrollHandler } from '../atoms/hooks/useMobileScrollHandler'
-import { DesktopScroll } from '../organisms/DesktopScroll'
+import { useSmoothScrollSetter } from '../atoms/hooks/useSmoothScrollSetter'
+import ScrollIndicator from '../molecules/ScrollIndicator'
 
 interface IProps {
   children: ReactElement | ReactElement[]
 }
 
 export const SmoothScrollWrapper: FC<IProps> = observer(({ children }) => {
-  const isDesktop = appState.screenType === 'mouse'
   const isMobile = appState.screenType === 'touchpad'
+  const [scrollProgressRatio, setScrollProgressRatio] = useState(0)
+  const wrapperRef = useSmoothScrollSetter(setScrollProgressRatio)
 
   useMobileScrollHandler(isMobile)
 
-  return isDesktop ? <DesktopScroll>{children}</DesktopScroll> : <>{children}</>
+  return (
+    <>
+      <div ref={wrapperRef} className={SMOOTH_SCROLL_CONTAINER_CLASS_NAME}>
+        {children}
+      </div>
+      <ScrollIndicator scrollProgressRatio={scrollProgressRatio} />
+    </>
+  )
 })

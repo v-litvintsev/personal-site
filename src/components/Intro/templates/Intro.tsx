@@ -5,6 +5,7 @@ import { splitIntoElements } from '../../../services/utils/splitIntoElements'
 import { INTRO_ANIMATION_CLASSNAMES } from '../atoms/constants/animation-classnames'
 import { useIntroInitializer } from '../atoms/hooks/useIntroInitializer'
 import { observer } from 'mobx-react-lite'
+import { MY_INITIALS } from '../../../content/general-content'
 
 export const Intro: FC = observer(() => {
   const isAnimationPlaying = useIntroInitializer()
@@ -23,14 +24,13 @@ export const Intro: FC = observer(() => {
       <div
         className={classNames(
           styles.name,
-          true && 'styles.name_loaded',
           INTRO_ANIMATION_CLASSNAMES.contentWrapper
         )}
       >
         <h2 className={styles.row}>
           <span className={styles.namePart}>
             {splitIntoElements(
-              'vladimir'.split(''),
+              MY_INITIALS.firstName.split(''),
               classNames(
                 INTRO_ANIMATION_CLASSNAMES.nameLetter1,
                 styles.nameSymbol
@@ -55,7 +55,7 @@ export const Intro: FC = observer(() => {
           />
           <span className={styles.namePart}>
             {splitIntoElements(
-              'litvintsev'.split(''),
+              MY_INITIALS.lastName.split(''),
               classNames(
                 INTRO_ANIMATION_CLASSNAMES.nameLetter2,
                 styles.nameSymbol

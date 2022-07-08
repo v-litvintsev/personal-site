@@ -2,16 +2,19 @@ import {
   Dispatch,
   MutableRefObject,
   SetStateAction,
+  useCallback,
   useEffect,
   useRef,
 } from 'react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { SMOOTH_SCROLL_CONTAINER_CLASS_NAME } from '../constants/classNames'
 import appState from '../../../../services/store/appState'
+import { useRouter } from 'next/router'
 
 let isScrollInitialized = false
+let scroll: any = null
 
-const unsetScrollVars = () => {
+export const unsetScrollVars = () => {
   isScrollInitialized = false
 }
 
@@ -19,13 +22,15 @@ export const useSmoothScrollSetter = (
   setScrollProgressRatio: Dispatch<SetStateAction<number>>
 ): MutableRefObject<HTMLDivElement | null> => {
   const wrapperRef = useRef<HTMLDivElement | null>(null)
+  const router = useRouter()
 
-  useEffect(() => {
-    let scroll: any = null
-
-    if (wrapperRef.current && !isScrollInitialized) {
+  const initializeLocomotiveScroll = useCallback(() => {
+    if (!isScrollInitialized) {
+      isScrollInitialized = true
       ;(async () => {
-        isScrollInitialized = true
+        if (scroll) {
+          scroll.destroy()
+        }
 
         const LocomotiveScroll = (await import('locomotive-scroll')).default
 
@@ -34,6 +39,7 @@ export const useSmoothScrollSetter = (
           smooth: true,
           lerp: 0.09,
           multiplier: 0.9,
+          smoothMobile: false,
         })
 
         scroll.on(
@@ -63,22 +69,20 @@ export const useSmoothScrollSetter = (
           pinType: scroll.el.style.transform ? 'transform' : 'fixed',
         })
 
-        ScrollTrigger.addEventListener('refresh', () => scroll.update())
         ScrollTrigger.refresh()
+        ScrollTrigger.addEventListener('refresh', () => scroll.update())
 
         appState.setHasScrollTriggerBeenInitialized(true)
         appState.setScroll(scroll)
       })()
     }
+  }, [setScrollProgressRatio])
 
-    return () => {
-      if (scroll) {
-        scroll.destroy()
-        scroll = null
-        unsetScrollVars()
-      }
+  useEffect(() => {
+    if (wrapperRef.current) {
+      initializeLocomotiveScroll()
     }
-  }, [wrapperRef, setScrollProgressRatio])
+  }, [wrapperRef, initializeLocomotiveScroll, router.asPath])
 
   return wrapperRef
 }

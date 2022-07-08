@@ -1,0 +1,28 @@
+.preview {
+  position: absolute;
+  width: 24vw;
+  top: 0;
+  left: 0;
+  transform: translateX(38vw);
+  pointer-events: none;
+  opacity: 0.95;
+  transition: opacity 0.4s;
+
+  &_hidden {
+    opacity: 0;
+  }
+
+  &Wrapper {
+    position: absolute;
+    transform: translateY(-100%);
+    transition: 0.4s;
+
+    &_enterActive {
+      opacity: 1;
+    }
+
+    &_exitActive {
+      opacity: 0;
+    }
+  }
+}

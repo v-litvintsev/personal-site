@@ -3,10 +3,16 @@
 .sectionWrapper {
   pointer-events: none;
   user-select: none;
-  height: 200vh;
+  height: 250vh;
   position: relative;
-  top: -60vh;
-  margin-bottom: -60vh;
+  top: -50vh;
+  margin-bottom: -50vh;
+
+  @media (min-width: $viewport-width-desktop) {
+    height: 320vh;
+    top: -70vh;
+    margin-bottom: -70vh;
+  }
 }
 
 .content {
@@ -14,7 +20,7 @@
   padding: 0 7.8125vw;
   line-height: 150%;
   white-space: pre-wrap;
-  height: 200vh;
+  height: 100%;
 
   @media (min-width: $viewport-width-tablet) {
     font-size: 5.635vw;

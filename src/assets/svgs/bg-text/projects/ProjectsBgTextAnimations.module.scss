@@ -1,0 +1,38 @@
+@keyframes manskiy-district-text-animation {
+  from {
+    transform: translateX(25.36%);
+  }
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+@keyframes skt-manskiy-district-text-animation {
+  from {
+    transform: translateX(25.36%);
+  }
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+@keyframes timingweb-text-animation {
+  from {
+    transform: translateX(25%);
+  }
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+.manskiyDistrict {
+  animation: manskiy-district-text-animation 22s linear infinite;
+}
+
+.timingweb {
+  animation: timingweb-text-animation 22s linear infinite;
+}
+
+.sktManskiyDistrict {
+  animation: skt-manskiy-district-text-animation 28s linear infinite;
+}

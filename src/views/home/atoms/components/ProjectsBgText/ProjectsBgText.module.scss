@@ -1,0 +1,21 @@
+@import '../../../../../styles/variables';
+
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate($rotate-angle);
+}
+
+.line {
+  animation: text-animation 22s linear infinite;
+}
+
+@keyframes text-animation {
+  from {
+    transform: translateX(25.72%);
+  }
+  to {
+    transform: translateX(-25%);
+  }
+}
