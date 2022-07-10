@@ -12,6 +12,7 @@ class AppState {
   isIntroAnimationPlayed = false
   isStartAnimationPlayed = false
   isHeaderHidden = false
+  scrollProgressRatio = 0
 
   hasScrollTriggerBeenInitialized = false
   scroll: any = null
@@ -60,6 +61,10 @@ class AppState {
 
   setIsHeaderHidden(value: boolean) {
     this.isHeaderHidden = value
+  }
+
+  setScrollProgressRatio(value: number) {
+    this.scrollProgressRatio = value
   }
 }
 

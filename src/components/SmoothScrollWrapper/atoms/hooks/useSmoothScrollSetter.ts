@@ -1,41 +1,26 @@
-import {
-  Dispatch,
-  MutableRefObject,
-  SetStateAction,
-  useCallback,
-  useEffect,
-  useRef,
-} from 'react'
+import { useCallback, useEffect } from 'react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { SMOOTH_SCROLL_CONTAINER_CLASS_NAME } from '../constants/classNames'
 import appState from '../../../../services/store/appState'
-import { useRouter } from 'next/router'
 
 let isScrollInitialized = false
 let scroll: any = null
 
-export const unsetScrollVars = () => {
+const unsetScrollVars = () => {
   isScrollInitialized = false
 }
 
-export const useSmoothScrollSetter = (
-  setScrollProgressRatio: Dispatch<SetStateAction<number>>
-): MutableRefObject<HTMLDivElement | null> => {
-  const wrapperRef = useRef<HTMLDivElement | null>(null)
-  const router = useRouter()
+const SMOOTH_SCROLL_CONTAINER_SELECTOR = `.${SMOOTH_SCROLL_CONTAINER_CLASS_NAME}`
 
+export const useSmoothScrollSetter = () => {
   const initializeLocomotiveScroll = useCallback(() => {
     if (!isScrollInitialized) {
       isScrollInitialized = true
       ;(async () => {
-        if (scroll) {
-          scroll.destroy()
-        }
-
         const LocomotiveScroll = (await import('locomotive-scroll')).default
 
         scroll = new LocomotiveScroll({
-          el: wrapperRef.current,
+          el: document.querySelector(SMOOTH_SCROLL_CONTAINER_SELECTOR),
           smooth: true,
           lerp: 0.09,
           multiplier: 0.9,
@@ -47,12 +32,12 @@ export const useSmoothScrollSetter = (
           ({ scroll: { y: scrollY }, limit: { y: scrollLimit } }: any) => {
             ScrollTrigger.update()
 
-            setScrollProgressRatio(scrollY / scrollLimit)
+            appState.setScrollProgressRatio(scrollY / scrollLimit)
           }
         )
 
         ScrollTrigger.defaults({ scroller: scroll.el })
-        ScrollTrigger.scrollerProxy(`.${SMOOTH_SCROLL_CONTAINER_CLASS_NAME}`, {
+        ScrollTrigger.scrollerProxy(SMOOTH_SCROLL_CONTAINER_SELECTOR, {
           scrollTop(value) {
             return arguments.length
               ? scroll.scrollTo(value, 0, 0)
@@ -76,13 +61,16 @@ export const useSmoothScrollSetter = (
         appState.setScroll(scroll)
       })()
     }
-  }, [setScrollProgressRatio])
+  }, [])
 
   useEffect(() => {
-    if (wrapperRef.current) {
-      initializeLocomotiveScroll()
-    }
-  }, [wrapperRef, initializeLocomotiveScroll, router.asPath])
+    initializeLocomotiveScroll()
 
-  return wrapperRef
+    return () => {
+      if (scroll) {
+        scroll.destroy()
+        unsetScrollVars()
+      }
+    }
+  }, [initializeLocomotiveScroll])
 }

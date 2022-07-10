@@ -1,0 +1,41 @@
+@import '../../../../styles/variables';
+
+@keyframes frontend-animation {
+  from {
+    transform: translateX(25.7%);
+  }
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+@keyframes backend-animation {
+  from {
+    transform: translateX(25.7%);
+  }
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+.frontend {
+  animation: frontend-animation 9s linear infinite;
+
+  @media (min-width: $viewport-width-tablet) {
+    animation-direction: reverse;
+  }
+}
+
+.backend {
+  animation: backend-animation 7s linear infinite reverse;
+}
+
+@media (min-width: $viewport-width-tablet) {
+  .frontendWrapper {
+    transform: translateY(6.1vw);
+  }
+
+  .backendWrapper {
+    transform: translateY(-6.1vw);
+  }
+}

@@ -26,7 +26,7 @@ const THEME_COLORS: IThemeColors = {
   },
   dark: {
     '--primary': '#fcfcfc',
-    '--difference-primary': '#000',
+    '--difference-primary': '#6b6b6b',
     '--bg-primary': '#272727',
     '--bg-text': '#656565',
     '--grey-1': '#484848',

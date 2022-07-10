@@ -1,0 +1,59 @@
+@import '../../../../styles/variables';
+
+.sectionWrapper {
+  padding: 12.5vw 0;
+
+  @media (min-width: $viewport-width-tablet) {
+    padding: 5.9952vw 0;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    padding: 2.222vw 0 0;
+    margin-bottom: -1.389vw;
+  }
+}
+
+.title {
+  text-align: center;
+  font-size: 6.25vw;
+  margin-bottom: 6.25vw;
+  white-space: pre-wrap;
+
+  @media (min-width: $viewport-width-tablet) {
+    font-size: 5.6355vw;
+    margin-bottom: 8.93357vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    font-size: 2.85vw;
+    margin-bottom: 0;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: $viewport-width-tablet) {
+    flex-direction: row;
+  }
+}
+
+.decor {
+  height: $decor-width-mobile;
+  background: var(--primary);
+  transition: background $theme-change-transition;
+  width: 84.375%;
+
+  @media (min-width: $viewport-width-tablet) {
+    width: auto;
+    min-width: $decor-width-tablet;
+    height: 35.3717vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    min-width: $decor-width-desktop;
+    height: 20.486vw;
+  }
+}

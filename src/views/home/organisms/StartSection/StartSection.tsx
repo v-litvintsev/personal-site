@@ -125,9 +125,10 @@ export const StartSection: FC = observer(() => {
       >
         <ThemeCheckbox />
       </div>
-      <div className={START_SECTION_ANIMATION_CLASSNAMES.secondaryElement}>
+      {/* WIP */}
+      {/* <div className={START_SECTION_ANIMATION_CLASSNAMES.secondaryElement}>
         <OtherLanguageLink appearanceDelay={2} />
-      </div>
+      </div> */}
       <div className={START_SECTION_ANIMATION_CLASSNAMES.secondaryElement}>
         <AttractiveNotification />
       </div>

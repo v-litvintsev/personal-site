@@ -21,20 +21,12 @@ export const DesktopNavLink: FC<IProps> = ({ name, path }) => {
   const onMouseEnter = () => linkHoverEnterAnimation(decorRef)
   const onMouseLeave = () => linkHoverExitAnimation(decorRef)
 
-  const handleLinkClick = () => {
-    if (appState.scroll) {
-      appState.scroll.scrollTo(0, { duration: 300 })
-      appState.scroll.init()
-    }
-  }
-
   return (
     <Link href={path}>
       <a
         className={classNames(styles.link, isLinkActive && styles.link_active)}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-        onClick={handleLinkClick}
       >
         <span ref={decorRef} className={styles.decor} />
         {name}

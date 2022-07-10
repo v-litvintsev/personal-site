@@ -1,0 +1,85 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.item {
+  position: relative;
+  padding: 15.625vw 0;
+  width: 100%;
+  overflow: hidden;
+
+  @media (min-width: $viewport-width-tablet) {
+    font-size: 2.63789vw;
+    padding: 10.55vw 0;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    font-size: 1.5278vw;
+    padding: 12vw 0;
+  }
+}
+
+.technologies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+
+  @media (min-width: $viewport-width-desktop) {
+    pointer-events: all;
+  }
+}
+
+.bgText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate($rotate-angle);
+  z-index: -1;
+  transition: 0.7s;
+
+  &_hidden {
+    opacity: 0;
+  }
+}
+
+.technology {
+  @include secondary-font-preset;
+
+  line-height: 150%;
+  font-size: 5.3125vw;
+
+  @media (min-width: $viewport-width-tablet) {
+    font-size: 2.63789vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    font-size: 1.5278vw;
+  }
+
+  & + & {
+    margin-top: 2.8125vw;
+
+    @media (min-width: $viewport-width-tablet) {
+      margin-top: 1.978vw;
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      margin-top: 1.146vw;
+    }
+  }
+
+  &Icon {
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.7s;
+    opacity: 0;
+
+    &_active {
+      opacity: 1;
+    }
+  }
+}
