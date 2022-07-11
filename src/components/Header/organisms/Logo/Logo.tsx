@@ -5,13 +5,14 @@ import { useRouter } from 'next/router'
 import { FC, MouseEventHandler } from 'react'
 import { MY_INITIALS } from '../../../../content/general-content'
 import appState from '../../../../services/store/appState'
+import { EPaths } from '../../../../types/paths'
 import styles from './Logo.module.scss'
 
 export const Logo: FC = observer(() => {
   const router = useRouter()
 
   const handleClick: MouseEventHandler = (event) => {
-    if (router.pathname === '/') {
+    if (router.pathname === EPaths.home) {
       event.preventDefault()
 
       const isDesktop = appState.viewportWidth === 'desktop'
@@ -25,7 +26,7 @@ export const Logo: FC = observer(() => {
   }
 
   return (
-    <Link href={'/'} className={styles.link}>
+    <Link href={EPaths.home} className={styles.link}>
       <a className={styles.link} onClick={handleClick}>
         <span className={styles.wrapper}>
           <span className={classNames(styles.namePart, styles.namePart_1)}>

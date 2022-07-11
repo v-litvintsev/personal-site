@@ -1,0 +1,201 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.wrapper {
+  line-height: 150%;
+  padding: 9.375vw 7.8125vw 6.25vw;
+  font-size: 5.3125vw;
+  position: relative;
+  overflow: hidden;
+
+  @media (min-width: $viewport-width-tablet) {
+    font-size: 2.6379vw;
+    padding: 5.3957vw 6.235vw 7.1942vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    font-size: 1.5278vw;
+    padding: 4.444vw 6.25vw 2.8472vw;
+  }
+}
+
+.mail {
+  &Link {
+    display: none;
+
+    @media (min-width: $viewport-width-tablet) {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 3.935vw;
+      font-size: 5.4398vw;
+      line-height: 150%;
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      margin-bottom: 5.9722vw;
+      font-size: 4.09722vw;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      overflow: hidden;
+    }
+  }
+
+  &Decors {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+
+    @media (min-width: $viewport-width-tablet) {
+      height: $decor-width-tablet;
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      height: $decor-width-desktop;
+    }
+  }
+
+  &Decor {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: var(--primary);
+    transition: 1.2s, background $theme-change-transition;
+
+    &_2 {
+      display: none;
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      &_1 {
+        transform-origin: left;
+        transform: scaleX(0.07753);
+      }
+
+      &_2 {
+        display: block;
+        transform-origin: right;
+        transform: scaleX(0.87303);
+      }
+
+      .mailLink:hover &_1 {
+        transform: scaleX(1);
+      }
+
+      .mailLink:hover &_2 {
+        transform: scaleX(-0.5);
+      }
+    }
+  }
+}
+
+.inlineMailLink {
+  @media (min-width: $viewport-width-tablet) {
+    display: none;
+  }
+}
+
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contactLink {
+  position: relative;
+  // overflow: hidden;
+
+  &Decor {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    height: $decor-small-width-mobile;
+    background: var(--primary);
+    transition: 0.4s, $theme-change-transition;
+    transform-origin: right;
+
+    @media (min-width: $viewport-width-tablet) {
+      height: $decor-small-width-tablet;
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      height: $decor-small-width-desktop;
+      overflow: hidden;
+    }
+  }
+
+  &Text {
+    display: inline-block;
+    transition: 0.4s;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    &:hover &Text {
+      transform: rotate($rotate-angle);
+    }
+
+    &:hover &Decor {
+      transform: scaleX(0);
+    }
+  }
+
+  & + & {
+    margin-top: 3.4375vw;
+
+    @media (min-width: $viewport-width-tablet) {
+      margin-top: 1.6787vw;
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      margin-top: 0.97222vw;
+    }
+  }
+}
+
+.contactLinksHeader {
+  @media (min-width: $viewport-width-tablet) {
+    display: none;
+  }
+}
+
+.contactLinksHeader {
+  margin-bottom: 3.4375vw;
+}
+
+.bottomContainer {
+  @media (min-width: $viewport-width-tablet) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+  }
+}
+
+.signature {
+  @include secondary-font-preset;
+  text-align: right;
+  font-size: 4.375vw;
+  margin-top: 14.0625vw;
+  display: flex;
+  justify-content: flex-end;
+  line-height: 150%;
+
+  &Text {
+    max-width: 67.5vw;
+  }
+
+  @media (min-width: $viewport-width-tablet) {
+    margin-top: 0;
+    max-width: 33.693vw;
+    font-size: 2.1583vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    max-width: 100%;
+    font-size: 1.25vw;
+  }
+}

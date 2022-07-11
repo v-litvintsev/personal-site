@@ -1,11 +1,12 @@
 import { IObject } from '../../../../types/globals'
+import { EPaths } from '../../../../types/paths'
 
 export const LINK_PATH_BY_PREVIOUS_PATHNAME: IObject = {
-  ['/']: '/about',
-  ['/about']: '/',
+  [EPaths.home]: EPaths.about,
+  [EPaths.about]: EPaths.home,
 }
 
 export const LINK_NAME_BY_PREVIOUS_PATHNAME: IObject = {
-  ['/']: 'about',
-  ['/about']: 'home',
+  [EPaths.home]: 'about',
+  [EPaths.about]: 'home',
 }

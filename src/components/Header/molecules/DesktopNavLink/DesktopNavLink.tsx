@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 import { FC, useRef } from 'react'
 import { linkHoverEnterAnimation } from '../../../../services/animations/link-hover-enter'
 import { linkHoverExitAnimation } from '../../../../services/animations/link-hover-exit'
-import appState from '../../../../services/store/appState'
 import styles from './DesktopNavLink.module.scss'
 
 interface IProps {

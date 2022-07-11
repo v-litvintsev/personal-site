@@ -7,7 +7,7 @@ export const useMobileScrollHandler = (isMobile: boolean) => {
       let previousScrollValue = 0
 
       const scrollHandler = () => {
-        appState.setIsScrolledUp(window.scrollY < previousScrollValue)
+        appState.setIsScrolledUp(window.scrollY <= previousScrollValue)
 
         previousScrollValue = window.scrollY
       }
@@ -16,6 +16,7 @@ export const useMobileScrollHandler = (isMobile: boolean) => {
 
       return () => {
         window.removeEventListener('scroll', scrollHandler)
+        previousScrollValue = 0
       }
     }
   }, [isMobile])

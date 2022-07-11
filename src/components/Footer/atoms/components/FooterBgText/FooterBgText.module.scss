@@ -1,0 +1,59 @@
+@import '../../../../../styles/variables';
+
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate($rotate-angle) translateY(-5vw);
+
+  @media (min-width: $viewport-width-desktop) {
+    transform: translate(-50%, -50%) rotate($rotate-angle) translateY(-3vw);
+  }
+}
+
+.line {
+  &1 {
+    animation: text-animation 18s linear infinite;
+
+    @media (min-width: $viewport-width-tablet) {
+      animation-duration: 22s;
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      animation-duration: 30s;
+    }
+  }
+
+  &2 {
+    animation: text-animation 25s linear infinite reverse;
+
+    @media (min-width: $viewport-width-tablet) {
+      animation-duration: 28s;
+    }
+  }
+
+  &3 {
+    animation: text-animation 40s linear infinite;
+  }
+
+  & + & {
+    margin-top: 1.625vw;
+
+    @media (min-width: $viewport-width-tablet) {
+      margin-top: 3.477vw;
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      margin-top: 2vw;
+    }
+  }
+}
+
+@keyframes text-animation {
+  from {
+    transform: translateX(25.36%);
+  }
+  to {
+    transform: translateX(-25%);
+  }
+}

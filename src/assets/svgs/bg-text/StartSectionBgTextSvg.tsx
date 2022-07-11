@@ -11,7 +11,7 @@ const SVG_DATA: ISvgSizeInput = {
   sizesInRelativeUnits: { mobile: 7.44375, tablet: 8.567, desktop: 5.84375 },
 }
 
-export const StartSectionMobileBgText: FC = () => {
+export const StartSectionMobileBgTextSvg: FC = () => {
   const { size, scaleRatio } = useSvgSizeAndPathScaleGetter(SVG_DATA)
 
   return (

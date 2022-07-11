@@ -72,6 +72,7 @@ export const DesktopProjectPreview: FC<IProps> = ({
           >
             <span className={styles.previewWrapper}>
               <Image
+                loading="eager"
                 alt={
                   hoveredItemIndex
                     ? PROJECTS_SECTION_ITEMS[hoveredItemIndex].domain

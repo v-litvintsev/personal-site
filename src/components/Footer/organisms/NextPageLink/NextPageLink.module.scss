@@ -1,0 +1,108 @@
+@import '../../../../styles/variables';
+
+.link {
+  position: relative;
+  display: block;
+  background: var(--primary);
+  color: var(--bg-primary);
+  padding: 5.9375vw 7.8125vw;
+  font-size: 6.25vw;
+  line-height: 150%;
+
+  @media (min-width: $viewport-width-tablet) {
+    padding: 2.88vw 6.235vw;
+    font-size: 4.436vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    background: var(--grey-2);
+    color: inherit;
+    font-size: 2.847vw;
+    padding: 1.1111vw 6.25vw;
+    text-align: center;
+  }
+}
+
+.decors {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  left: 0;
+  height: $decor-width-mobile;
+
+  @media (min-width: $viewport-width-tablet) {
+    height: $decor-width-tablet;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    height: $decor-width-desktop;
+  }
+}
+
+.decor {
+  width: 17.34375vw;
+  background: var(--bg-primary);
+  transition: background $theme-change-transition;
+  position: absolute;
+  height: 100%;
+
+  @media (min-width: $viewport-width-tablet) {
+    width: 35.971vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    width: 12.1527vw;
+    background: var(--primary);
+    transition: 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+    .link:hover & {
+      transform: scaleX(1.514);
+    }
+  }
+
+  &_1 {
+    right: 7.8125vw;
+
+    @media (min-width: $viewport-width-tablet) {
+      right: 6.235vw;
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      left: 6.25vw;
+      transform-origin: left;
+    }
+  }
+
+  &_2 {
+    display: none;
+
+    @media (min-width: $viewport-width-desktop) {
+      right: 6.25vw;
+      display: block;
+      transform-origin: right;
+    }
+  }
+}
+
+.desktopHoverDecor {
+  display: none;
+
+  @media (min-width: $viewport-width-desktop) {
+    display: block;
+    width: 102%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) skew($skew-angle) scaleX(0);
+    position: absolute;
+    pointer-events: none;
+    transition: 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+    mix-blend-mode: difference;
+    background: #fff;
+
+    .link:hover & {
+      transform: translateX(-50%) skew($skew-angle) scaleX(1);
+    }
+  }
+}

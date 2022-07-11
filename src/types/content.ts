@@ -17,12 +17,22 @@ export interface ITechnologyItem {
 }
 
 export interface IStackTechnologies {
-  FRONTEND: {
+  [key: string]: {
     technologies: ITechnologyItem[]
     bgText: ReactElement
   }
-  BACKEND: {
-    technologies: ITechnologyItem[]
-    bgText: ReactElement
-  }
+}
+
+export interface IFooterNextPageLink {
+  header: string
+  path: string
+}
+
+export interface IFooterNextPageLinks {
+  [key: string]: IFooterNextPageLink
+}
+
+export interface IContactLink {
+  name: string
+  link: string
 }
