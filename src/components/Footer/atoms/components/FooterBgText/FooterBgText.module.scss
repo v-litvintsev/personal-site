@@ -13,27 +13,23 @@
 
 .line {
   &1 {
-    animation: text-animation 18s linear infinite;
+    animation: text-animation-reversed 18s linear infinite reverse;
 
     @media (min-width: $viewport-width-tablet) {
-      animation-duration: 22s;
+      animation-duration: 20s;
     }
 
     @media (min-width: $viewport-width-desktop) {
-      animation-duration: 30s;
+      animation-duration: 26s;
     }
   }
 
   &2 {
-    animation: text-animation 25s linear infinite reverse;
-
-    @media (min-width: $viewport-width-tablet) {
-      animation-duration: 28s;
-    }
+    animation: text-animation 23s linear infinite reverse;
   }
 
   &3 {
-    animation: text-animation 40s linear infinite;
+    animation: text-animation-reversed 33s linear infinite reverse;
   }
 
   & + & {
@@ -55,5 +51,14 @@
   }
   to {
     transform: translateX(-25%);
+  }
+}
+
+@keyframes text-animation-reversed {
+  from {
+    transform: translateX(-25%);
+  }
+  to {
+    transform: translateX(25.36%);
   }
 }

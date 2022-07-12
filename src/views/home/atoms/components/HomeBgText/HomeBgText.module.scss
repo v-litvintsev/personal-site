@@ -11,7 +11,7 @@
 
 .line {
   &1 {
-    animation: text-animation 22s linear infinite;
+    animation: text-animation-reversed 22s linear infinite reverse;
 
     @media (min-width: $viewport-width-tablet) {
       animation-duration: 26s;
@@ -31,7 +31,7 @@
   }
 
   &3 {
-    animation: text-animation 40s linear infinite;
+    animation: text-animation-reversed 40s linear infinite reverse;
   }
 }
 
@@ -41,5 +41,14 @@
   }
   to {
     transform: translateX(-25%);
+  }
+}
+
+@keyframes text-animation-reversed {
+  from {
+    transform: translateX(-25%);
+  }
+  to {
+    transform: translateX(25.36%);
   }
 }

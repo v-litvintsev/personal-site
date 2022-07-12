@@ -1,11 +1,11 @@
 @import '../../../../styles/variables';
 
-@keyframes frontend-animation {
+@keyframes frontend-animation-reversed {
   from {
-    transform: translateX(25.7%);
+    transform: translateX(-25%);
   }
   to {
-    transform: translateX(-25%);
+    transform: translateX(25.7%);
   }
 }
 
@@ -19,10 +19,10 @@
 }
 
 .frontend {
-  animation: frontend-animation 9s linear infinite;
+  animation: frontend-animation-reversed 9s linear infinite reverse;
 
   @media (min-width: $viewport-width-tablet) {
-    animation-direction: reverse;
+    animation-direction: normal;
   }
 }
 
