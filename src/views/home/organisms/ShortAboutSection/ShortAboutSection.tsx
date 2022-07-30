@@ -6,7 +6,7 @@ import { useAnimationSetter } from '../../../../services/hooks/useAnimationSette
 import appState from '../../../../services/store/appState'
 import { shortAboutSectionAnimation } from '../../atoms/animations/short-about-section-animation'
 import { SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES } from '../../atoms/constants/short-about-section-animation-classnames'
-import { shortAboutTextParser } from '../../atoms/utils/shortAboutTextParser'
+import { splitAboutTextIntoElements } from '../../atoms/utils/splitAboutTextIntoElements'
 import styles from './ShortAboutSection.module.scss'
 
 export const ShortAboutSection: FC = observer(() => {
@@ -30,13 +30,13 @@ export const ShortAboutSection: FC = observer(() => {
             SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES.text
           )}
         >
-          {shortAboutTextParser(SHORT_ABOUT_TEXT, {
-            word: classNames(
+          {splitAboutTextIntoElements(
+            SHORT_ABOUT_TEXT,
+            classNames(
               styles.word,
               SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES.word
-            ),
-            noWrapWord: styles.word_noWrap,
-          })}
+            )
+          )}
         </div>
       </div>
     </section>

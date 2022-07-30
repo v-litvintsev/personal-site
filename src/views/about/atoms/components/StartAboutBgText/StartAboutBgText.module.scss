@@ -1,0 +1,70 @@
+@import '../../../../../styles/variables';
+
+.wrapper {
+  position: absolute;
+  top: 90vw;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate($rotate-angle);
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $viewport-width-tablet) {
+    top: 49vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    top: 25vw;
+  }
+}
+
+.line {
+  & + & {
+    margin-top: 4.1vw;
+
+    @media (min-width: $viewport-width-tablet) {
+      margin-top: 4.9vw;
+    }
+  }
+
+  &1 {
+    animation: text-animation-reversed 9s linear infinite reverse;
+
+    @media (min-width: $viewport-width-tablet) {
+      animation-duration: 11s;
+    }
+
+    @media (min-width: $viewport-width-desktop) {
+      animation-duration: 21s;
+    }
+  }
+
+  &2 {
+    animation: text-animation 13s linear infinite reverse;
+
+    @media (min-width: $viewport-width-tablet) {
+      animation-duration: 14s;
+    }
+  }
+
+  &3 {
+    animation: text-animation-reversed 18s linear infinite reverse;
+  }
+}
+
+@keyframes text-animation {
+  from {
+    transform: translateX(25.36%);
+  }
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+@keyframes text-animation-reversed {
+  from {
+    transform: translateX(-25%);
+  }
+  to {
+    transform: translateX(25.36%);
+  }
+}

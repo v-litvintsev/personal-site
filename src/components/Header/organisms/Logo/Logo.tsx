@@ -27,7 +27,13 @@ export const Logo: FC = observer(() => {
 
   return (
     <Link href={EPaths.home} className={styles.link}>
-      <a className={styles.link} onClick={handleClick}>
+      <a
+        className={classNames(
+          styles.link,
+          appState.isLogoHidden && styles.link_hidden
+        )}
+        onClick={handleClick}
+      >
         <span className={styles.wrapper}>
           <span className={classNames(styles.namePart, styles.namePart_1)}>
             {MY_INITIALS.firstName}

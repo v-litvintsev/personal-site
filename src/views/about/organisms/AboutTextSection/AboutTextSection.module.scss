@@ -1,0 +1,26 @@
+@import '../../../../styles/variables';
+
+.section {
+  padding: 12.5vw 7.8125vw;
+
+  @media (min-width: $viewport-width-tablet) {
+    padding: 4.8vw 6.235vw 7.2vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    padding: 4.51389vw 12.36vw;
+  }
+}
+
+.text {
+  font-size: 6vw;
+  line-height: 150%;
+
+  @media (min-width: $viewport-width-tablet) {
+    font-size: 5.6355vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    font-size: 2.8472vw;
+  }
+}

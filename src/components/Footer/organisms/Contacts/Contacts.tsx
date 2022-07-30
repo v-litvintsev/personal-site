@@ -51,9 +51,7 @@ export const Contacts: FC = () => (
           </a>
         ))}
       </div>
-      <h5 className={styles.signature}>
-        <span className={styles.signatureText}>{FOOTER_SIGNATURE}</span>
-      </h5>
+      <h5 className={styles.signature}>{FOOTER_SIGNATURE}</h5>
     </div>
   </div>
 )

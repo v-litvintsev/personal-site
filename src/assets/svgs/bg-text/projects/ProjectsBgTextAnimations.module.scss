@@ -25,13 +25,18 @@
   }
 }
 
+.timingweb {
+  animation: timingweb-text-animation-reversed 23s linear infinite reverse;
+}
+
 .manskiyDistrict {
   animation: manskiy-district-text-animation-reversed 26s linear infinite
     reverse;
 }
 
-.timingweb {
-  animation: timingweb-text-animation-reversed 23s linear infinite reverse;
+.zamanje {
+  animation: manskiy-district-text-animation-reversed 20s linear infinite
+    reverse;
 }
 
 .sktManskiyDistrict {

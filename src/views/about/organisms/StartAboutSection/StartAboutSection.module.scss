@@ -1,0 +1,146 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.section {
+  overflow: hidden;
+  position: relative;
+}
+
+.wrapper {
+  @media (min-width: $viewport-width-tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 19.42vw 6.235vw 14.868vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    padding: 10.347vw 15.972vw 4.722vw 12.43vw;
+  }
+}
+
+.content {
+  padding: 30.625vw 7.8125vw 0;
+  position: relative;
+
+  @media (min-width: $viewport-width-tablet) {
+    padding: 0;
+    top: 1.171875vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    top: 0vw;
+  }
+}
+
+.info {
+  @include secondary-font-preset;
+  margin: 11.25vw 0 11.5625vw;
+  font-size: 5.3125vw;
+  line-height: 150%;
+
+  @media (min-width: $viewport-width-tablet) {
+    font-size: 2.278vw;
+    margin: 4.916vw 0 0;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    font-size: 1.25vw;
+    margin-top: 3vw;
+  }
+}
+
+.name {
+  &Row {
+    width: 84.375vw;
+    display: flex;
+    align-items: center;
+  }
+
+  &Part {
+    color: var(--primary);
+    font-size: 10vw;
+    white-space: nowrap;
+  }
+
+  &Decor {
+    width: 100%;
+    background: var(--primary);
+    height: $decor-width-mobile;
+
+    &_1 {
+      margin-left: 8.4375vw;
+      transform-origin: left;
+    }
+
+    &_2 {
+      margin-right: 8.4375vw;
+      transform-origin: right;
+    }
+  }
+
+  &Symbol {
+    display: inline-block;
+  }
+
+  @media (min-width: $viewport-width-tablet) {
+    &Part {
+      font-size: 4.437vw;
+    }
+
+    &Decor {
+      height: $decor-width-tablet;
+
+      &_1 {
+        margin-left: 4.6vw;
+      }
+
+      &_2 {
+        margin-right: 4.6vw;
+      }
+    }
+
+    &Row {
+      width: 45.923vw;
+
+      &_2 {
+        padding-right: 8vw;
+      }
+    }
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    &Part {
+      font-size: 3.26389vw;
+    }
+
+    &Decor {
+      height: $decor-width-desktop;
+
+      &_1 {
+        margin-left: 3.472vw;
+      }
+
+      &_2 {
+        margin-right: 3.472vw;
+      }
+    }
+
+    &Row {
+      width: 37.569vw;
+    }
+  }
+}
+
+.photo {
+  padding: 0 14.1vw 12.5vw;
+  
+  @media (min-width: $viewport-width-tablet) {
+    padding: 0;
+    width: 33.213vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    width: 23.33vw;
+  }
+}

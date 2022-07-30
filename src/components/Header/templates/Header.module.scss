@@ -1,5 +1,9 @@
 @import '../../../styles/variables';
 
+.item {
+  pointer-events: all;
+}
+
 .header {
   position: fixed;
   top: 7.8125vw;
@@ -26,12 +30,7 @@
 
   &_startAnimationIsNotPlayed {
     opacity: 0;
-    pointer-events: none;
   }
-}
-
-.item {
-  pointer-events: all;
 }
 
 @media (min-width: $viewport-width-tablet) {

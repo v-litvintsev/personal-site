@@ -1,6 +1,6 @@
 import gsap from 'gsap'
 import { useEffect } from 'react'
-import appState from '../../../../services/store/appState'
+import appState from '../store/appState'
 
 export const useStartScrollBlocker = () => {
   useEffect(() => {

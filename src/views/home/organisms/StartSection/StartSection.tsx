@@ -3,18 +3,17 @@ import { observer } from 'mobx-react-lite'
 import { FC } from 'react'
 import { START_SECTION_CONTENT } from '../../../../content/home/start'
 import { splitIntoElements } from '../../../../services/utils/splitIntoElements'
+import { startSectionAnimation } from '../../atoms/animations/start-section-animation'
 import HomeBgText from '../../atoms/components/HomeBgText'
 import { START_SECTION_ANIMATION_CLASSNAMES } from '../../atoms/constants/start-section-animation-classnames'
-import { useStartScrollBlocker } from '../../atoms/hooks/useStartScrollBlocker'
-import { useStartSectionAnimationsInitializer } from '../../atoms/hooks/useStartSectionAnimationsInitializer'
+import { useStartSectionAnimationsInitializer } from '../../../../services/hooks/useStartSectionAnimationsInitializer'
 import AttractiveNotification from '../../molecules/AttractiveNotification'
 import OtherLanguageLink from '../../molecules/OtherLanguageLink'
 import ThemeCheckbox from '../../molecules/ThemeCheckbox'
 import styles from './StartSection.module.scss'
 
 export const StartSection: FC = observer(() => {
-  useStartSectionAnimationsInitializer()
-  useStartScrollBlocker()
+  useStartSectionAnimationsInitializer(startSectionAnimation)
 
   return (
     <section className={styles.wrapper}>

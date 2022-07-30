@@ -25,7 +25,23 @@
 }
 
 .namePart {
+  transition: 0.5s;
+
   &_2 {
     align-self: flex-end;
+  }
+}
+
+.link_hidden {
+  .namePart {
+    opacity: 0;
+
+    &_1 {
+      transform: translateX(13%);
+    }
+
+    &_2 {
+      transform: translateX(-13%);
+    }
   }
 }

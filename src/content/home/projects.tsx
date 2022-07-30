@@ -1,10 +1,12 @@
 import { IProject } from '../../types/content'
-import manskiyDistrictPreview from '../../assets/images/projects/manskiy-district.jpg'
 import timingwebPreview from '../../assets/images/projects/timingweb.png'
+import manskiyDistrictPreview from '../../assets/images/projects/manskiy-district.jpg'
+import zamanjePreview from '../../assets/images/projects/zamanje.jpg'
 import sktManskiyDistrictPreview from '../../assets/images/projects/skt.manskiy-district.jpg'
 import { MasnkiyDistrictBgTextSvg } from '../../assets/svgs/bg-text/projects/ManskiyDistrictBgTextSvg'
 import { SktManskiyDistrictBgTextSvg } from '../../assets/svgs/bg-text/projects/SktManskiyDistrictBgTextSvg'
 import { TimingWebBgTextSvg } from '../../assets/svgs/bg-text/projects/TimingWebBgTextSvg'
+import { ZamanjeBgTextSvg } from '../../assets/svgs/bg-text/projects/ZamanjeBgTextSvg'
 
 const PROJECT_TAGS = {
   design: 'UI / UX Design',
@@ -14,6 +16,13 @@ const PROJECT_TAGS = {
 }
 
 export const PROJECTS_SECTION_ITEMS: IProject[] = [
+  {
+    domain: 'timingweb.com',
+    link: 'https://timingweb.com',
+    tags: [PROJECT_TAGS.design, PROJECT_TAGS.frontend],
+    previewImage: timingwebPreview,
+    mobileBgText: <TimingWebBgTextSvg />,
+  },
   {
     domain: 'манский-район.рф',
     link: 'https://манский-район.рф',
@@ -27,13 +36,6 @@ export const PROJECTS_SECTION_ITEMS: IProject[] = [
     isMobileBgTextNotCentered: true,
   },
   {
-    domain: 'timingweb.com',
-    link: 'https://timingweb.com',
-    tags: [PROJECT_TAGS.design, PROJECT_TAGS.frontend],
-    previewImage: timingwebPreview,
-    mobileBgText: <TimingWebBgTextSvg />,
-  },
-  {
     domain: 'скт.манский-район.рф',
     link: 'https://скт.манский-район.рф',
     tags: [
@@ -43,6 +45,13 @@ export const PROJECTS_SECTION_ITEMS: IProject[] = [
     previewImage: sktManskiyDistrictPreview,
     mobileBgText: <SktManskiyDistrictBgTextSvg />,
     isMobileBgTextNotCentered: true,
+  },
+  {
+    domain: 'заманье24.рф',
+    link: 'https://заманье24.рф',
+    tags: [PROJECT_TAGS.design, PROJECT_TAGS.frontend, PROJECT_TAGS.backend],
+    previewImage: zamanjePreview,
+    mobileBgText: <ZamanjeBgTextSvg />,
   },
 ]
 

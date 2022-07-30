@@ -1,11 +1,9 @@
 import gsap, { Power4 } from 'gsap'
 import { getClassNamesByString } from '../../../../services/utils/getClassNamesByString'
+import { indicateTheEndOfTheAnimation } from '../../../../services/utils/indicateTheEndOfTheAnimation'
 import { START_SECTION_ANIMATION_CLASSNAMES } from '../constants/start-section-animation-classnames'
 
-export const startSectionAnimation = (
-  indicateTheEndOfTheAnimation: () => void,
-  isHomeStartAnimationPlayed: boolean
-) => {
+export const startSectionAnimation = (isHomeStartAnimationPlayed: boolean) => {
   const classNames = getClassNamesByString<
     typeof START_SECTION_ANIMATION_CLASSNAMES
   >(START_SECTION_ANIMATION_CLASSNAMES)

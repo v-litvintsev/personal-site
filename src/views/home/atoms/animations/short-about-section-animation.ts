@@ -23,13 +23,8 @@ export const shortAboutSectionAnimation = (
     {
       opacity: 0,
       y: isDesktop ? '3.5vh' : '0',
-      filter:
-        isDesktop && window.navigator.hardwareConcurrency >= 8
-          ? 'blur(0.3vw)'
-          : '',
     },
     {
-      filter: 'blur(0vw)',
       opacity: 1,
       y: 0,
       stagger: isDesktop ? 0.7 : 0.4,

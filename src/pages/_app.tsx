@@ -8,6 +8,7 @@ import Header from '../components/Header'
 import { useWindowEventHandlersSetter } from '../services/hooks/useWindowEventHandlersSetter'
 import { FC } from 'react'
 import { observer } from 'mobx-react-lite'
+import { useStartScrollBlocker } from '../services/hooks/useStartScrollBlocker'
 import ScrollIndicator from '../components/SmoothScrollWrapper/molecules/ScrollIndicator'
 import HtmlHead from '../components/HtmlHead'
 
@@ -16,6 +17,7 @@ gsap.registerPlugin(ScrollTrigger)
 const AppContainer: FC<AppProps> = observer(({ Component, pageProps }) => {
   useInitialVariableSetter()
   useWindowEventHandlersSetter()
+  useStartScrollBlocker()
 
   return (
     <>

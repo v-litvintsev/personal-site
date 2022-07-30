@@ -1,3 +1,4 @@
+import { DetailedHTMLProps, HtmlHTMLAttributes } from 'react'
 import { IContactLink } from '../types/content'
 import { EPaths } from '../types/paths'
 
@@ -46,5 +47,18 @@ export const CONTACT_LINKS: IContactLink[] = [
   },
 ]
 
-export const FOOTER_SIGNATURE =
-  'designed and developed by vladimir litvintsev, 2022'
+export const FOOTER_SIGNATURE = '© Vladimir Litvintsev 2022'
+// 'Thanks to Sergey Materukhin for the photos\n© Vladimir Litvintsev 2022'
+
+export const HEAD_CONTENT = {
+  title: 'Vladimir Litvinstev | Creative web developer',
+  description: 'Fullstack TypeScript developer and UI/UX designer from Russia',
+}
+
+export const HTML_PROPS: DetailedHTMLProps<
+  HtmlHTMLAttributes<HTMLHtmlElement>,
+  HTMLHtmlElement
+> = {
+  translate: 'no',
+  lang: 'en',
+}

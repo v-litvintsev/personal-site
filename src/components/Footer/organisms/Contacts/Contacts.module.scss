@@ -104,7 +104,6 @@
 
 .contactLink {
   position: relative;
-  // overflow: hidden;
 
   &Decor {
     position: absolute;
@@ -165,13 +164,13 @@
 }
 
 .bottomContainer {
+  display: flex;
+  flex-direction: column;
+
   @media (min-width: $viewport-width-tablet) {
-    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
-  }
-
-  @media (min-width: $viewport-width-desktop) {
   }
 }
 
@@ -183,15 +182,15 @@
   display: flex;
   justify-content: flex-end;
   line-height: 150%;
-
-  &Text {
-    max-width: 67.5vw;
-  }
+  white-space: pre-wrap;
+  position: relative;
+  max-width: 95%;
+  align-self: flex-end;
 
   @media (min-width: $viewport-width-tablet) {
     margin-top: 0;
-    max-width: 33.693vw;
     font-size: 2.1583vw;
+    max-width: 100%;
   }
 
   @media (min-width: $viewport-width-desktop) {
