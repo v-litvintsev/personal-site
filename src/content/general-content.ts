@@ -41,10 +41,6 @@ export const CONTACT_LINKS: IContactLink[] = [
     name: 'github',
     link: 'https://github.com/v-litvintsev/',
   },
-  {
-    name: 'instagram',
-    link: 'https://instagram.com/vl_litvintsev/',
-  },
 ]
 
 export const FOOTER_SIGNATURE = '© Vladimir Litvintsev 2022'
