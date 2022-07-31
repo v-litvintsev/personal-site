@@ -12,15 +12,14 @@ import { ABOUT_START_SECTION_ANIMATION_CLASSNAMES } from '../../atoms/constants/
 import styles from './StartAboutSection.module.scss'
 
 export const StartAboutSection: FC = observer(() => {
-  // useStartSectionAnimationsInitializer(aboutStartSectionAnimation)
+  useStartSectionAnimationsInitializer(aboutStartSectionAnimation)
 
   useEffect(() => {
-    appState.setIsStartAnimationPlayed(true)
-    // appState.setIsLogoHidden(true)
+    appState.setIsLogoHidden(true)
 
-    // return () => {
-    //   appState.setIsLogoHidden(false)
-    // }
+    return () => {
+      appState.setIsLogoHidden(false)
+    }
   }, [])
 
   return (
@@ -37,7 +36,14 @@ export const StartAboutSection: FC = observer(() => {
         <div className={styles.content}>
           <div className={styles.name}>
             <h2 className={styles.nameRow}>
-              <span className={styles.namePart}>{MY_INITIALS.firstName}</span>
+              <span
+                className={classNames(
+                  styles.namePart,
+                  ABOUT_START_SECTION_ANIMATION_CLASSNAMES.namePart1
+                )}
+              >
+                {MY_INITIALS.firstName}
+              </span>
               <span
                 className={classNames(
                   styles.nameDecor,
@@ -54,18 +60,36 @@ export const StartAboutSection: FC = observer(() => {
                   ABOUT_START_SECTION_ANIMATION_CLASSNAMES.nameDecor2
                 )}
               />
-              <span className={styles.namePart}>{MY_INITIALS.lastName}</span>
+              <span
+                className={classNames(
+                  styles.namePart,
+                  ABOUT_START_SECTION_ANIMATION_CLASSNAMES.namePart2
+                )}
+              >
+                {MY_INITIALS.lastName}
+              </span>
             </h2>
           </div>
           <div className={styles.info}>
             {ABOUT_START_CONTENT.infoItems.map((item) => (
-              <p key={item} className={styles.infoItem}>
+              <p
+                key={item}
+                className={classNames(
+                  styles.infoItem,
+                  ABOUT_START_SECTION_ANIMATION_CLASSNAMES.infoItem
+                )}
+              >
                 {item}
               </p>
             ))}
           </div>
         </div>
-        <div className={styles.photo}>
+        <div
+          className={classNames(
+            styles.photo,
+            ABOUT_START_SECTION_ANIMATION_CLASSNAMES.photo
+          )}
+        >
           <Image
             src={ABOUT_START_CONTENT.photo.src}
             alt={ABOUT_START_CONTENT.photo.alt}

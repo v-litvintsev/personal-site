@@ -134,7 +134,7 @@
 
 .photo {
   padding: 0 14.1vw 12.5vw;
-  
+
   @media (min-width: $viewport-width-tablet) {
     padding: 0;
     width: 33.213vw;
@@ -143,4 +143,8 @@
   @media (min-width: $viewport-width-desktop) {
     width: 23.33vw;
   }
+}
+
+.bgText {
+  opacity: 0;
 }

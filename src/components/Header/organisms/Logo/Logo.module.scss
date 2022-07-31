@@ -33,6 +33,8 @@
 }
 
 .link_hidden {
+  pointer-events: none;
+
   .namePart {
     opacity: 0;
 

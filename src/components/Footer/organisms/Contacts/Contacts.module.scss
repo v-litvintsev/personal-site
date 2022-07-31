@@ -154,13 +154,12 @@
 }
 
 .contactLinksHeader {
+  position: relative;
+  margin-bottom: 3.4375vw;
+
   @media (min-width: $viewport-width-tablet) {
     display: none;
   }
-}
-
-.contactLinksHeader {
-  margin-bottom: 3.4375vw;
 }
 
 .bottomContainer {

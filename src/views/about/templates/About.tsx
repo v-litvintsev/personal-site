@@ -7,9 +7,9 @@ import InDevelopmentPlaceholder from '../organisms/InDevelopmentPlaceholder'
 
 export const About: FC = () => (
   <>
-    {/* <StartAboutSection />
-    <AboutTextSection /> */}
-    <InDevelopmentPlaceholder />
+    <StartAboutSection />
+    <AboutTextSection />
+    {/* <InDevelopmentPlaceholder /> */}
     <Footer {...FOOTER_NEXT_PAGE_LINKS.HOME} />
   </>
 )
