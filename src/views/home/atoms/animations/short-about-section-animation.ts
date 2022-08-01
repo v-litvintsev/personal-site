@@ -6,13 +6,14 @@ import { START_SECTION_ANIMATION_CLASSNAMES } from '../constants/start-section-a
 
 const startSectionFadeOutElement = `.${START_SECTION_ANIMATION_CLASSNAMES.fadeOutOnScrollElement}`
 
-export const shortAboutSectionAnimation = (
-  isDesktop: boolean,
-  isTablet: boolean
-) => {
+export const shortAboutSectionAnimation = () => {
   const classNames = getClassNamesByString<
     typeof SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES
   >(SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES)
+
+  const isDesktop =
+    appState.viewportWidth === 'desktop' && appState.screenType === 'mouse'
+  const isTablet = appState.viewportWidth === 'tablet'
 
   const setIsHeaderHidden = (value: boolean) => {
     isDesktop && appState.setIsHeaderHidden(value)

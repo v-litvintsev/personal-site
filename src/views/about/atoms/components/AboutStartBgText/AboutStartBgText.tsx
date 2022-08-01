@@ -3,9 +3,9 @@ import { observer } from 'mobx-react-lite'
 import { FC } from 'react'
 import { AboutBgTextSvg } from '../../../../../assets/svgs/bg-text/AboutBgTextSvg'
 import appState from '../../../../../services/store/appState'
-import styles from './StartAboutBgText.module.scss'
+import styles from './AboutStartBgText.module.scss'
 
-export const StartAboutBgText: FC = observer(() => {
+export const AboutStartBgText: FC = observer(() => {
   const isMobile = appState.viewportWidth === 'mobile'
   const isTablet = appState.viewportWidth === 'tablet'
   const isDesktop = appState.viewportWidth === 'desktop'

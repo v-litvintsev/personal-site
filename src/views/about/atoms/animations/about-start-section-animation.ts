@@ -1,6 +1,6 @@
 import { getClassNamesByString } from '../../../../services/utils/getClassNamesByString'
 import { indicateTheEndOfTheAnimation } from '../../../../services/utils/indicateTheEndOfTheAnimation'
-import { ABOUT_START_SECTION_ANIMATION_CLASSNAMES } from '../constants/start-about-section-classnames'
+import { ABOUT_START_SECTION_ANIMATION_CLASSNAMES } from '../constants/about-start-section-classnames'
 import gsap, { Power4, Power2 } from 'gsap'
 import appState from '../../../../services/store/appState'
 
@@ -75,17 +75,24 @@ export const aboutStartSectionAnimation = (
       )
 
       timeline.fromTo(
-        classNames.photo,
+        classNames.photoImage,
         {
-          opacity: 0,
+          scale: 1.2,
         },
         {
-          opacity: 1,
+          scale: 1,
           ease: Power2.easeOut,
           delay: -0.2,
-          duration: 1.8,
+          duration: 1.5,
         }
       )
+
+      timeline.to(classNames.photoCover, {
+        scaleX: 0,
+        delay: -1.5,
+        ease: Power2.easeOut,
+        duration: 1.5,
+      })
 
       timeline.to(classNames.bgText, {
         opacity: 1,
@@ -121,17 +128,24 @@ export const aboutStartSectionAnimation = (
       )
 
       timeline.fromTo(
-        classNames.photo,
+        classNames.photoImage,
         {
-          opacity: 0,
+          scale: 1.2,
         },
         {
-          opacity: 1,
+          scale: 1,
           ease: Power2.easeOut,
-          delay: -1.1,
-          duration: 1.8,
+          delay: -1.2,
+          duration: 1.5,
         }
       )
+
+      timeline.to(classNames.photoCover, {
+        scaleX: 0,
+        delay: -1.5,
+        ease: Power2.easeOut,
+        duration: 1.5,
+      })
 
       timeline.fromTo(
         classNames.infoItem,
@@ -142,7 +156,7 @@ export const aboutStartSectionAnimation = (
           opacity: 1,
           duration: 0.4,
           ease: Power2.easeOut,
-          delay: -1,
+          delay: -0.5,
           stagger: 0.3,
         }
       )
@@ -155,8 +169,6 @@ export const aboutStartSectionAnimation = (
       })
     }
   } else {
-    timeline.set(classNames.photo, { opacity: 0 })
-
     if (isMobile) {
       timeline.fromTo(
         [classNames.nameDecor2, classNames.nameDecor1],
@@ -172,22 +184,29 @@ export const aboutStartSectionAnimation = (
       )
 
       timeline.fromTo(
-        classNames.photo,
+        classNames.photoImage,
         {
-          opacity: 0,
+          scale: 1.2,
         },
         {
-          opacity: 1,
+          scale: 1,
           ease: Power2.easeOut,
           delay: -1,
-          duration: 1.8,
+          duration: 1.5,
         }
       )
+
+      timeline.to(classNames.photoCover, {
+        scaleX: 0,
+        delay: -1.5,
+        ease: Power2.easeOut,
+        duration: 1.5,
+      })
 
       timeline.to(classNames.bgText, {
         opacity: 1,
         duration: 1.3,
-        delay: -1.8,
+        delay: -1,
         onStart: indicateTheEndOfTheAnimation,
       })
     } else {
@@ -218,22 +237,29 @@ export const aboutStartSectionAnimation = (
       )
 
       timeline.fromTo(
-        classNames.photo,
+        classNames.photoImage,
         {
-          opacity: 0,
+          scale: 1.2,
         },
         {
-          opacity: 1,
+          scale: 1,
           ease: Power2.easeOut,
-          delay: -1,
-          duration: 1.8,
+          delay: -1.2,
+          duration: 1.5,
         }
       )
+
+      timeline.to(classNames.photoCover, {
+        scaleX: 0,
+        delay: -1.5,
+        ease: Power2.easeOut,
+        duration: 1.5,
+      })
 
       timeline.to(classNames.bgText, {
         opacity: 1,
         duration: 1.3,
-        delay: -1.1,
+        delay: -0.4,
         onStart: indicateTheEndOfTheAnimation,
       })
     }

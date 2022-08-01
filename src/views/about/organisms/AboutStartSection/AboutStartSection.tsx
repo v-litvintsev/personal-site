@@ -7,11 +7,11 @@ import { MY_INITIALS } from '../../../../content/general-content'
 import { useStartSectionAnimationsInitializer } from '../../../../services/hooks/useStartSectionAnimationsInitializer'
 import appState from '../../../../services/store/appState'
 import { aboutStartSectionAnimation } from '../../atoms/animations/about-start-section-animation'
-import StartAboutBgText from '../../atoms/components/StartAboutBgText'
-import { ABOUT_START_SECTION_ANIMATION_CLASSNAMES } from '../../atoms/constants/start-about-section-classnames'
-import styles from './StartAboutSection.module.scss'
+import AboutStartBgText from '../../atoms/components/AboutStartBgText'
+import { ABOUT_START_SECTION_ANIMATION_CLASSNAMES } from '../../atoms/constants/about-start-section-classnames'
+import styles from './AboutStartSection.module.scss'
 
-export const StartAboutSection: FC = observer(() => {
+export const AboutStartSection: FC = observer(() => {
   useStartSectionAnimationsInitializer(aboutStartSectionAnimation)
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export const StartAboutSection: FC = observer(() => {
           ABOUT_START_SECTION_ANIMATION_CLASSNAMES.bgText
         )}
       >
-        <StartAboutBgText />
+        <AboutStartBgText />
       </div>
       <div className={styles.wrapper}>
         <div className={styles.content}>
@@ -84,17 +84,23 @@ export const StartAboutSection: FC = observer(() => {
             ))}
           </div>
         </div>
-        <div
-          className={classNames(
-            styles.photo,
-            ABOUT_START_SECTION_ANIMATION_CLASSNAMES.photo
-          )}
-        >
-          <Image
-            src={ABOUT_START_CONTENT.photo.src}
-            alt={ABOUT_START_CONTENT.photo.alt}
-            className={styles.photoImage}
-          />
+        <div className={styles.photoContainer}>
+          <div className={styles.photo}>
+            <Image
+              src={ABOUT_START_CONTENT.photo.src}
+              alt={ABOUT_START_CONTENT.photo.alt}
+              className={classNames(
+                styles.photoImage,
+                ABOUT_START_SECTION_ANIMATION_CLASSNAMES.photoImage
+              )}
+            />
+            <span
+              className={classNames(
+                styles.photoCover,
+                ABOUT_START_SECTION_ANIMATION_CLASSNAMES.photoCover
+              )}
+            ></span>
+          </div>
         </div>
       </div>
     </section>

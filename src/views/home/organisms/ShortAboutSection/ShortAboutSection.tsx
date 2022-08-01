@@ -3,18 +3,13 @@ import { observer } from 'mobx-react-lite'
 import { FC } from 'react'
 import { SHORT_ABOUT_TEXT } from '../../../../content/home/short-about'
 import { useAnimationSetter } from '../../../../services/hooks/useAnimationSetter'
-import appState from '../../../../services/store/appState'
 import { shortAboutSectionAnimation } from '../../atoms/animations/short-about-section-animation'
 import { SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES } from '../../atoms/constants/short-about-section-animation-classnames'
 import { splitAboutTextIntoElements } from '../../atoms/utils/splitAboutTextIntoElements'
 import styles from './ShortAboutSection.module.scss'
 
 export const ShortAboutSection: FC = observer(() => {
-  const isDesktop =
-    appState.viewportWidth === 'desktop' && appState.screenType === 'mouse'
-  const isTablet = appState.viewportWidth === 'tablet'
-
-  useAnimationSetter(() => shortAboutSectionAnimation(isDesktop, isTablet))
+  useAnimationSetter(shortAboutSectionAnimation)
 
   return (
     <section className={styles.sectionWrapper}>
