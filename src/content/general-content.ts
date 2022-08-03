@@ -43,8 +43,8 @@ export const CONTACT_LINKS: IContactLink[] = [
   },
 ]
 
-export const FOOTER_SIGNATURE = '© Vladimir Litvintsev 2022'
-// 'Thanks to Sergey Materukhin for the photos\n© Vladimir Litvintsev 2022'
+export const FOOTER_SIGNATURE =
+  'Thanks to Sergey Materukhin for the photos\n© Vladimir Litvintsev 2022'
 
 export const HEAD_CONTENT = {
   title: 'Vladimir Litvinstev | Creative web developer',

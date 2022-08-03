@@ -7,30 +7,30 @@ import { setCSSVariable } from './setCSSVariable'
 interface IThemeColors {
   [theme: string]: {
     [ECSSVariableFields.primary]: string
-    [ECSSVariableFields.differencePrimary]: string
     [ECSSVariableFields.bgPrimary]: string
     [ECSSVariableFields.bgText]: string
     [ECSSVariableFields.grey1]: string
     [ECSSVariableFields.grey2]: string
+    [ECSSVariableFields.grey3]: string
   }
 }
 
 const THEME_COLORS: IThemeColors = {
   light: {
     '--primary': '#111',
-    '--difference-primary': '#ebebeb',
     '--bg-primary': '#fbfbfb',
     '--bg-text': '#e5e5e5',
     '--grey-1': '#e7e7e7',
     '--grey-2': '#f4f4f4',
+    '--grey-3': '#ebebeb',
   },
   dark: {
     '--primary': '#fcfcfc',
-    '--difference-primary': '#6b6b6b',
     '--bg-primary': '#272727',
     '--bg-text': '#656565',
     '--grey-1': '#484848',
     '--grey-2': '#535353',
+    '--grey-3': '#6b6b6b',
   },
 }
 

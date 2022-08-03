@@ -122,4 +122,9 @@ export const startSectionAnimation = (isHomeStartAnimationPlayed: boolean) => {
       }
     )
   }
+
+  // HACK Dirty hack for library caching
+  ;(async () => {
+    await import('hover-effect')
+  })()
 }

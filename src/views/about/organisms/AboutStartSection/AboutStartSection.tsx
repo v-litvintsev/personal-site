@@ -1,26 +1,21 @@
 import classNames from 'classnames'
 import { observer } from 'mobx-react-lite'
-import Image from 'next/image'
-import { FC, useEffect } from 'react'
+import { FC, useState } from 'react'
+import ImageWithHoverEffectWrapper from '../../../../components/ImageWithHoverEffectWrapper'
 import { ABOUT_START_CONTENT } from '../../../../content/about/start'
 import { MY_INITIALS } from '../../../../content/general-content'
 import { useStartSectionAnimationsInitializer } from '../../../../services/hooks/useStartSectionAnimationsInitializer'
-import appState from '../../../../services/store/appState'
 import { aboutStartSectionAnimation } from '../../atoms/animations/about-start-section-animation'
 import AboutStartBgText from '../../atoms/components/AboutStartBgText'
 import { ABOUT_START_SECTION_ANIMATION_CLASSNAMES } from '../../atoms/constants/about-start-section-classnames'
+import { useAboutMobilePhotoEffectAnimationSetter } from '../../atoms/hooks/useAboutMobilePhotoEffectAnimationSetter'
 import styles from './AboutStartSection.module.scss'
 
 export const AboutStartSection: FC = observer(() => {
+  const [photoEffect, setPhotoEffect] = useState<any | null>(null)
+
   useStartSectionAnimationsInitializer(aboutStartSectionAnimation)
-
-  useEffect(() => {
-    appState.setIsLogoHidden(true)
-
-    return () => {
-      appState.setIsLogoHidden(false)
-    }
-  }, [])
+  useAboutMobilePhotoEffectAnimationSetter(photoEffect)
 
   return (
     <section className={styles.section}>
@@ -86,13 +81,22 @@ export const AboutStartSection: FC = observer(() => {
         </div>
         <div className={styles.photoContainer}>
           <div className={styles.photo}>
-            <Image
-              src={ABOUT_START_CONTENT.photo.src}
-              alt={ABOUT_START_CONTENT.photo.alt}
+            <div
               className={classNames(
                 styles.photoImage,
                 ABOUT_START_SECTION_ANIMATION_CLASSNAMES.photoImage
               )}
+            >
+              <ImageWithHoverEffectWrapper
+                displacementImage={ABOUT_START_CONTENT.photo.displacementImage}
+                image1={ABOUT_START_CONTENT.photo.image1}
+                image2={ABOUT_START_CONTENT.photo.image2}
+                setEffect={setPhotoEffect}
+              />
+            </div>
+            <img
+              alt={ABOUT_START_CONTENT.photo.alt}
+              className={styles.photoInvisibleImage}
             />
             <span
               className={classNames(

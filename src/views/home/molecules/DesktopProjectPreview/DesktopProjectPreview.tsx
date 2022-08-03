@@ -50,7 +50,7 @@ export const DesktopProjectPreview: FC<IProps> = ({
         )}
         ref={previewRef}
       >
-        <TransitionGroup>
+        <TransitionGroup component={null}>
           <CSSTransition
             key={
               hoveredItemIndex

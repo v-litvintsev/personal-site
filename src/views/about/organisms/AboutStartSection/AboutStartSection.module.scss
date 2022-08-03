@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 19.42vw 6.235vw 14.868vw;
+    padding: 25vw 6.235vw 19vw;
   }
 
   @media (min-width: $viewport-width-desktop) {
@@ -133,8 +133,33 @@
 }
 
 .photo {
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
+  height: 97.5vw;
+  pointer-events: none;
+
+  @media (min-width: $viewport-width-tablet) {
+    height: 45.25179856vw;
+  }
+
+  @media (min-width: $viewport-width-desktop) {
+    height: 31.76319444vw;
+    cursor: help;
+    pointer-events: all;
+  }
+
+  &Image {
+    height: 100%;
+  }
+
+  &FallbackImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 
   &Container {
     padding: 0 14.1vw 12.5vw;

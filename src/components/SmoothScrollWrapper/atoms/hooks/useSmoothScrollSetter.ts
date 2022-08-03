@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from 'react'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import { SMOOTH_SCROLL_CONTAINER_CLASS_NAME } from '../constants/classNames'
 import appState from '../../../../services/store/appState'
 
