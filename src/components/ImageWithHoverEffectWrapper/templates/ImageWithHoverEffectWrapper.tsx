@@ -1,4 +1,4 @@
-import { FC, useRef } from 'react'
+import { FC, useState } from 'react'
 import { useImageHoverEffectSetter } from '../atoms/hooks/useImageHoverEffectSetter'
 import { IImageHoverEffectWrapperProps } from '../atoms/types/props'
 import styles from './ImageWithHoverEffectWrapper.module.scss'
@@ -6,9 +6,11 @@ import styles from './ImageWithHoverEffectWrapper.module.scss'
 export const ImageWithHoverEffectWrapper: FC<IImageHoverEffectWrapperProps> = (
   props
 ) => {
-  const containerRef = useRef<HTMLDivElement | null>(null)
+  const [effectContainer, setEffectContainer] = useState<HTMLDivElement | null>(
+    null
+  )
 
-  useImageHoverEffectSetter({ parentNode: containerRef.current, ...props })
+  useImageHoverEffectSetter({ parentNode: effectContainer, ...props })
 
-  return <div ref={containerRef} className={styles.container} />
+  return <div ref={setEffectContainer} className={styles.container} />
 }
