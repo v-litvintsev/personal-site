@@ -47,7 +47,7 @@ export const FOOTER_SIGNATURE =
   'Thanks to Sergey Materukhin for the photos\n© Vladimir Litvintsev 2022'
 
 export const HEAD_CONTENT = {
-  title: 'Vladimir Litvinstev | Creative web developer',
+  title: 'Vladimir Litvintsev | Creative web developer',
   description: 'Fullstack TypeScript developer and UI/UX designer from Russia',
 }
 
