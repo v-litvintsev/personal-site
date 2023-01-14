@@ -3,7 +3,7 @@
 .wrapper {
   position: relative;
   padding: 0 0 12.5vw;
-  overflow: hidden;
+  overflow-x: clip;
 
   @media (min-width: $viewport-width-tablet) {
     padding: 0 0 4.8vw;
@@ -11,7 +11,8 @@
 
   @media (min-width: $viewport-width-desktop) {
     padding: 2vw 11.9vw;
-    margin-bottom: 6.68vw;overflow: visible;
+    margin-bottom: 6.68vw;
+    overflow: visible;
   }
 }
 
@@ -67,5 +68,5 @@
   height: 100%;
   top: 0;
   left: 0;
-  overflow: hidden;
+  overflow-x: clip;
 }

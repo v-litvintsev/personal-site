@@ -1,4 +1,6 @@
 import { IProject } from '../../types/content'
+import rayPreview from '../../assets/images/projects/ray.jpg'
+import { RayBgTextSvg } from '../../assets/svgs/bg-text/projects/RayBgTextSvg'
 import timingwebPreview from '../../assets/images/projects/timingweb.png'
 import manskiyDistrictPreview from '../../assets/images/projects/manskiy-district.jpg'
 // import zamanjePreview from '../../assets/images/projects/zamanje.jpg'
@@ -17,24 +19,31 @@ const PROJECT_TAGS = {
 
 export const PROJECTS_SECTION_ITEMS: IProject[] = [
   {
+    domain: 'ray024.ru',
+    link: 'https://ray.chipsa.ru/html',
+    tags: [PROJECT_TAGS.frontend],
+    previewImage: rayPreview,
+    mobileBgText: <RayBgTextSvg />,
+  },
+  {
     domain: 'timingweb.com',
     link: 'https://timingweb.com',
     tags: [PROJECT_TAGS.design, PROJECT_TAGS.frontend],
     previewImage: timingwebPreview,
     mobileBgText: <TimingWebBgTextSvg />,
   },
-  {
-    domain: 'манский-район.рф',
-    link: 'https://манский-район.рф',
-    tags: [
-      PROJECT_TAGS.design,
-      PROJECT_TAGS.frontend,
-      `${PROJECT_TAGS.backend} & ${PROJECT_TAGS.chatBot}`,
-    ],
-    previewImage: manskiyDistrictPreview,
-    mobileBgText: <MasnkiyDistrictBgTextSvg />,
-    isMobileBgTextNotCentered: true,
-  },
+  // {
+  //   domain: 'манский-район.рф',
+  //   link: 'https://манский-район.рф',
+  //   tags: [
+  //     PROJECT_TAGS.design,
+  //     PROJECT_TAGS.frontend,
+  //     `${PROJECT_TAGS.backend} & ${PROJECT_TAGS.chatBot}`,
+  //   ],
+  //   previewImage: manskiyDistrictPreview,
+  //   mobileBgText: <MasnkiyDistrictBgTextSvg />,
+  //   isMobileBgTextNotCentered: true,
+  // },
   // {
   //   domain: 'скт.манский-район.рф',
   //   link: 'https://скт.манский-район.рф',

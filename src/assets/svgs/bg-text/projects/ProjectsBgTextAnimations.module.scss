@@ -25,6 +25,15 @@
   }
 }
 
+@keyframes ray-text-animation-reversed {
+  from {
+    transform: translateX(-25.52%);
+  }
+  to {
+    transform: translateX(25%);
+  }
+}
+
 .timingweb {
   animation: timingweb-text-animation-reversed 23s linear infinite reverse;
 }
@@ -42,4 +51,8 @@
 .sktManskiyDistrict {
   animation: skt-manskiy-district-text-animation-reversed 36s linear infinite
     reverse;
+}
+
+.ray {
+  animation: ray-text-animation-reversed 17s linear infinite reverse;
 }
