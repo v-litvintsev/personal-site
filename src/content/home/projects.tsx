@@ -18,13 +18,13 @@ const PROJECT_TAGS = {
 }
 
 export const PROJECTS_SECTION_ITEMS: IProject[] = [
-  {
-    domain: 'ray024.ru',
-    link: 'https://ray.chipsa.ru/html',
-    tags: [PROJECT_TAGS.frontend],
-    previewImage: rayPreview,
-    mobileBgText: <RayBgTextSvg />,
-  },
+  // {
+  //   domain: 'ray024.ru',
+  //   link: 'https://ray.chipsa.ru/html',
+  //   tags: [PROJECT_TAGS.frontend],
+  //   previewImage: rayPreview,
+  //   mobileBgText: <RayBgTextSvg />,
+  // },
   {
     domain: 'timingweb.com',
     link: 'https://timingweb.com',
