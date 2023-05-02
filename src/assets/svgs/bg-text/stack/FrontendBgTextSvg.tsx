@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite'
-import { FC } from 'react'
+import { FC, useEffect, useRef } from 'react'
 import {
   ISvgSizeInput,
   useSvgSizeAndPathScaleGetter,
@@ -18,9 +18,22 @@ export const FrontendBgTextSvg: FC = observer(() => {
 
   const isMobile = appState.viewportWidth === 'mobile'
 
+  const problemAnimationBlockRef = useRef<HTMLDivElement | null>(null)
+
+  // DIRTY HACK
+  useEffect(() => {
+    setTimeout(() => {
+      if (problemAnimationBlockRef.current) {
+        problemAnimationBlockRef.current.style.animation = `${
+          isMobile ? 'frontend-animation' : 'frontend-animation-reversed'
+        } 9s linear infinite `
+      }
+    }, 1000)
+  }, [isMobile])
+
   return (
     <div className={animationStyles.frontendWrapper}>
-      <div className={animationStyles.frontend}>
+      <div className={animationStyles.frontend} ref={problemAnimationBlockRef}>
         <svg
           width={size.width}
           height={size.height}

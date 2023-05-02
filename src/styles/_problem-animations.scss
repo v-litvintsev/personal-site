@@ -1,0 +1,26 @@
+@keyframes frontend-animation-reversed {
+  from {
+    transform: translateX(-25%);
+  }
+  to {
+    transform: translateX(25.7%);
+  }
+}
+
+@keyframes frontend-animation {
+  from {
+    transform: translateX(25.7%);
+  }
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+@keyframes projects-block-text-animation {
+  from {
+    transform: translateX(25.72%);
+  }
+  to {
+    transform: translateX(-25%);
+  }
+}
