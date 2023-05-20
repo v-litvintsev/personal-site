@@ -1,1 +1,1 @@
-export const SHORT_ABOUT_TEXT = `Hi! I'm a Fullstack TypeScript developer and UI/UX designer, lately I focused on creative development. Before that I've been doing landings, multi-page sites, web services and chatbots. My projects:`
+export const SHORT_ABOUT_TEXT = `Hi, I'm a Fullstack TypeScript developer and UI/UX designer, lately I focused on creative development. Before that I've been doing landings, multi-page sites, web services and chatbots. My projects:`
