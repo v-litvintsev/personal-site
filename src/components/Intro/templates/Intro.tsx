@@ -6,6 +6,7 @@ import { INTRO_ANIMATION_CLASSNAMES } from '../atoms/constants/animation-classna
 import { useIntroInitializer } from '../atoms/hooks/useIntroInitializer'
 import { observer } from 'mobx-react-lite'
 import { MY_INITIALS } from '../../../content/general-content'
+import { introSymbolsWidthSetter } from '../atoms/utils/introSymbolsWidthSetter'
 
 export const Intro: FC = observer(() => {
   const isAnimationPlaying = useIntroInitializer()
@@ -34,7 +35,8 @@ export const Intro: FC = observer(() => {
               classNames(
                 INTRO_ANIMATION_CLASSNAMES.nameLetter1,
                 styles.nameSymbol
-              )
+              ),
+              introSymbolsWidthSetter
             )}
           </span>
           <span
@@ -59,7 +61,8 @@ export const Intro: FC = observer(() => {
               classNames(
                 INTRO_ANIMATION_CLASSNAMES.nameLetter2,
                 styles.nameSymbol
-              )
+              ),
+              introSymbolsWidthSetter
             )}
           </span>
         </h2>

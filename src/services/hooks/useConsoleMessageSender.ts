@@ -7,7 +7,7 @@ const CONSOLE_MESSAGE = {
     background: var(--bg-primary);
     font-size: 16px;
     line-height: 140%;
-    font-family: Montserrat;
+    font-family: Montserrat, Arial;
     font-style: italic;
     font-weight: 600;
     text-transform: uppercase;
