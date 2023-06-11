@@ -6,10 +6,11 @@ import appState from '../store/appState'
 type TCallback = (() => void) | (() => () => void)
 
 export const useAnimationSetter = (callback: TCallback) => {
-  const isMobile = appState.screenType === 'touchpad'
+  const isMobileOrTablet =
+    appState.viewportWidth === 'mobile' || appState.viewportWidth === 'tablet'
 
   useEffect(() => {
-    if (isMobile || appState.hasScrollTriggerBeenInitialized) {
+    if (isMobileOrTablet || appState.hasScrollTriggerBeenInitialized) {
       const onUnmountHandler = callback()
 
       if (onUnmountHandler) {
@@ -17,5 +18,5 @@ export const useAnimationSetter = (callback: TCallback) => {
       }
     }
     // eslint-disable-next-line
-  }, [callback, appState.hasScrollTriggerBeenInitialized])
+  }, [callback, appState.hasScrollTriggerBeenInitialized, isMobileOrTablet])
 }

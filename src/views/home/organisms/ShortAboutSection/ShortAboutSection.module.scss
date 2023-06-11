@@ -22,7 +22,7 @@
 }
 
 .contentWrapper {
-  position: sticky;
+  position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
@@ -30,7 +30,6 @@
   height: 100vh;
 
   @media (min-width: $viewport-width-desktop) {
-    position: absolute;
     height: 100%;
   }
 }

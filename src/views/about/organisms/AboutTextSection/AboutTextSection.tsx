@@ -5,9 +5,10 @@ import { useAnimationSetter } from '../../../../services/hooks/useAnimationSette
 import { splitAboutTextIntoElements } from '../../../home/atoms/utils/splitAboutTextIntoElements'
 import { aboutTextSectionAnimation } from '../../atoms/animations/about-text-section-animation'
 import { ABOUT_TEXT_SECTION_ANIMATION_CLASSNAMES } from '../../atoms/constants/about-text-section-classnames'
+import { observer } from 'mobx-react-lite'
 import styles from './AboutTextSection.module.scss'
 
-export const AboutTextSection: FC = () => {
+export const AboutTextSection: FC = observer(() => {
   useAnimationSetter(aboutTextSectionAnimation)
 
   return (
@@ -25,4 +26,4 @@ export const AboutTextSection: FC = () => {
       </p>
     </section>
   )
-}
+})

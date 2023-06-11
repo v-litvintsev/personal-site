@@ -62,9 +62,9 @@ export const useSmoothScrollSetter = () => {
     }
   }, [])
 
-  useEffect(() => {
-    const isDesktop = appState.viewportWidth === 'desktop'
+  const isDesktop = appState.viewportWidth === 'desktop'
 
+  useEffect(() => {
     if (isDesktop) {
       initializeLocomotiveScroll()
 
@@ -75,5 +75,5 @@ export const useSmoothScrollSetter = () => {
         }
       }
     }
-  }, [initializeLocomotiveScroll])
+  }, [initializeLocomotiveScroll, isDesktop])
 }

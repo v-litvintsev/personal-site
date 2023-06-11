@@ -7,8 +7,6 @@ export const useMobileScrollHandler = () => {
       appState.viewportWidth === 'mobile' || appState.viewportWidth === 'tablet'
 
     if (isMobileOrTablet) {
-      appState.setHasScrollTriggerBeenInitialized(true)
-
       let previousScrollValue = 0
 
       const scrollHandler = () => {
