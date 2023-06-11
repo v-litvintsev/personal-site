@@ -10,12 +10,8 @@ export const useInitialVariableSetter = () => {
     // theme
     const storageTheme = localStorageUtility.get(ELocalStorageFields.theme)
 
-    const isDarkTheme =
-      window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-
-    if ((isDarkTheme && !storageTheme) || storageTheme === 'dark') {
-      setTheme('dark')
+    if (storageTheme == 'dark') {
+      setTheme(storageTheme)
     }
 
     // screen params

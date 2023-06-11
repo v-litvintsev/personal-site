@@ -8,12 +8,8 @@
   top: -50vh;
 
   @media (min-width: $viewport-width-desktop) {
-    height: 140vw;
+    height: 105vw;
     top: -70vh;
-  }
-
-  @media (min-width: 1560px) {
-    height: 130vw;
   }
 
   @media (min-aspect-ratio: 2/1) {
