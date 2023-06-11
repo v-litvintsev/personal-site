@@ -13,6 +13,7 @@ import ScrollIndicator from '../components/SmoothScrollWrapper/molecules/ScrollI
 import HtmlHead from '../components/HtmlHead'
 import PageTransitionWrapper from '../components/PageTransitionWrapper'
 import { useConsoleMessageSender } from '../services/hooks/useConsoleMessageSender'
+import { useBrowserDetector } from '../services/hooks/useBrowserDetector'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -21,6 +22,7 @@ const AppContainer: FC<AppProps> = observer(({ Component, pageProps }) => {
   useWindowEventHandlersSetter()
   useStartScrollBlocker()
   useConsoleMessageSender()
+  useBrowserDetector()
 
   return (
     <>

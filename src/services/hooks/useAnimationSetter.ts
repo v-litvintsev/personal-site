@@ -10,7 +10,10 @@ export const useAnimationSetter = (callback: TCallback) => {
     appState.viewportWidth === 'mobile' || appState.viewportWidth === 'tablet'
 
   useEffect(() => {
-    if (isMobileOrTablet || appState.hasScrollTriggerBeenInitialized) {
+    if (
+      appState.hasBrowserBeenDetected &&
+      (isMobileOrTablet || appState.hasScrollTriggerBeenInitialized)
+    ) {
       const onUnmountHandler = callback()
 
       if (onUnmountHandler) {
@@ -18,5 +21,10 @@ export const useAnimationSetter = (callback: TCallback) => {
       }
     }
     // eslint-disable-next-line
-  }, [callback, appState.hasScrollTriggerBeenInitialized, isMobileOrTablet])
+  }, [
+    callback,
+    appState.hasScrollTriggerBeenInitialized,
+    appState.hasBrowserBeenDetected,
+    isMobileOrTablet,
+  ])
 }

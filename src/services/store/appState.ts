@@ -17,6 +17,7 @@ class AppState {
 
   hasScrollTriggerBeenInitialized = false
   scroll: any = null
+  hasBrowserBeenDetected = false
 
   closePopupFunctions: (() => void)[] = []
 
@@ -46,6 +47,10 @@ class AppState {
 
   setScroll(value: any) {
     this.scroll = value
+  }
+
+  setHasBrowserBeenDetected(value: boolean) {
+    this.hasBrowserBeenDetected = value
   }
 
   addClosePopupFunction(action: () => void) {
