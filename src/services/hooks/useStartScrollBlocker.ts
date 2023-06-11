@@ -7,8 +7,8 @@ export const useStartScrollBlocker = () => {
     const isDesktop = appState.viewportWidth === 'desktop'
 
     if (!appState.isStartAnimationPlayed) {
-      if (isDesktop && appState.scroll) {
-        appState.scroll.stop()
+      if (isDesktop) {
+        appState.scroll?.stop()
       } else {
         gsap.set(document.body, {
           maxHeight: '100vh',
@@ -16,8 +16,8 @@ export const useStartScrollBlocker = () => {
         })
       }
     } else {
-      if (isDesktop && appState.scroll) {
-        appState.scroll.start()
+      if (isDesktop) {
+        appState.scroll?.start()
       } else {
         gsap.set(document.body, {
           maxHeight: 'auto',

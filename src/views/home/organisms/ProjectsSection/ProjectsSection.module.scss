@@ -4,6 +4,7 @@
   position: relative;
   padding: 0 0 12.5vw;
   overflow-x: clip;
+  margin-top: -50vh;
 
   @media (min-width: $viewport-width-tablet) {
     padding: 0 0 4.8vw;
@@ -13,6 +14,7 @@
     padding: 2vw 11.9vw;
     margin-bottom: 6.68vw;
     overflow: visible;
+    margin-top: -70vh;
   }
 }
 

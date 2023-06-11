@@ -11,9 +11,9 @@ export const shortAboutSectionAnimation = () => {
     typeof SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES
   >(SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES)
 
-  const isDesktop =
-    appState.viewportWidth === 'desktop' && appState.screenType === 'mouse'
+  const isDesktop = appState.viewportWidth === 'desktop'
   const isTablet = appState.viewportWidth === 'tablet'
+  const isMobile = appState.viewportWidth === 'mobile'
 
   const setIsHeaderHidden = (value: boolean) => {
     isDesktop && appState.setIsHeaderHidden(value)
@@ -32,11 +32,10 @@ export const shortAboutSectionAnimation = () => {
       ease: Power4.easeOut,
       duration: 10,
       scrollTrigger: {
-        trigger: classNames.wrapper,
+        trigger: classNames.section,
         start: 'top top',
         end: 'bottom bottom',
         scrub: true,
-        pin: true,
         onEnter: () => setIsHeaderHidden(true),
         onEnterBack: () => setIsHeaderHidden(true),
         onLeave: () => setIsHeaderHidden(false),
@@ -49,14 +48,14 @@ export const shortAboutSectionAnimation = () => {
     opacity: 0,
     ease: Power1.easeOut,
     scrollTrigger: {
-      trigger: classNames.wrapper,
+      trigger: classNames.section,
       start: 'top',
       end: 'center-=40%',
       scrub: isDesktop ? 1 : true,
     },
   })
 
-  const textAnimation =
+  const textFadeOutAnimation =
     (isDesktop || isTablet) &&
     gsap.fromTo(
       classNames.text,
@@ -68,18 +67,43 @@ export const shortAboutSectionAnimation = () => {
         y: '0',
         ease: Power1.easeOut,
         scrollTrigger: {
-          trigger: classNames.wrapper,
+          trigger: classNames.section,
           start: 'top top',
           end: 'bottom bottom',
           scrub: true,
-          pin: true,
         },
       }
     )
 
+  const desktopTextPinAnimation =
+    isDesktop &&
+    gsap.to(document.documentElement, {
+      scrollTrigger: {
+        trigger: classNames.contentWrapper,
+        start: 'top top',
+        end: 'bottom bottom',
+        pin: true,
+      },
+    })
+
+  const tabletAndMobileTextPinAnimation =
+    (isTablet || isMobile) &&
+    gsap.to(document.documentElement, {
+      scrollTrigger: {
+        trigger: classNames.section,
+        start: 'top top',
+        end: 'bottom bottom',
+        pin: classNames.contentWrapper,
+      },
+    })
+
   return () => {
-    ;[wordsAnimation, startSectionFadeOutAnimation, textAnimation].forEach(
-      (animation) => animation && animation.pause().kill()
-    )
+    ;[
+      wordsAnimation,
+      startSectionFadeOutAnimation,
+      textFadeOutAnimation,
+      desktopTextPinAnimation,
+      tabletAndMobileTextPinAnimation,
+    ].forEach((animation) => animation && animation.pause().kill())
   }
 }

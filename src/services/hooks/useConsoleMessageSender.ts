@@ -12,7 +12,7 @@ const CONSOLE_MESSAGE = {
     font-weight: 600;
     text-transform: uppercase;
   `,
-  text: 'Hello developers!\nThe site was created by Vladimir Litvintsev, sources: https://github.com/v-litvintsev/personal-site, have a good inspection!',
+  text: 'Hello developers,\nThe site was created by Vladimir Litvintsev, sources: https://github.com/v-litvintsev/personal-site, have a good inspection',
 }
 
 export const useConsoleMessageSender = () => {

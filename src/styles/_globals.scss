@@ -11,7 +11,7 @@ body {
   transition: $theme-change-transition;
 
   @media (min-width: $viewport-width-desktop) {
-    ::-webkit-scrollbar {
+    &::-webkit-scrollbar {
       display: none;
     }
   }

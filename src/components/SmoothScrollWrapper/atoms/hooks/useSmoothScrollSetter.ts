@@ -24,7 +24,6 @@ export const useSmoothScrollSetter = () => {
           smooth: true,
           lerp: 0.09,
           multiplier: 0.9,
-          smoothMobile: false,
         })
 
         scroll.on(
@@ -64,12 +63,16 @@ export const useSmoothScrollSetter = () => {
   }, [])
 
   useEffect(() => {
-    initializeLocomotiveScroll()
+    const isDesktop = appState.viewportWidth === 'desktop'
 
-    return () => {
-      if (scroll) {
-        scroll.destroy()
-        unsetScrollVars()
+    if (isDesktop) {
+      initializeLocomotiveScroll()
+
+      return () => {
+        if (scroll) {
+          scroll.destroy()
+          unsetScrollVars()
+        }
       }
     }
   }, [initializeLocomotiveScroll])

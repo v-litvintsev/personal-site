@@ -1,9 +1,14 @@
 import { useEffect } from 'react'
 import appState from '../../../../services/store/appState'
 
-export const useMobileScrollHandler = (isMobile: boolean) => {
+export const useMobileScrollHandler = () => {
   useEffect(() => {
-    if (isMobile) {
+    const isMobileOrTablet =
+      appState.viewportWidth === 'mobile' || appState.viewportWidth === 'tablet'
+
+    if (isMobileOrTablet) {
+      appState.setHasScrollTriggerBeenInitialized(true)
+
       let previousScrollValue = 0
 
       const scrollHandler = () => {
@@ -21,5 +26,5 @@ export const useMobileScrollHandler = (isMobile: boolean) => {
         previousScrollValue = 0
       }
     }
-  }, [isMobile])
+  }, [])
 }

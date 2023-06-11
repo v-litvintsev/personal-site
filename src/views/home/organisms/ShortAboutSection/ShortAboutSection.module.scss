@@ -1,17 +1,37 @@
 @import '../../../../styles/variables';
 
-.sectionWrapper {
+.section {
   pointer-events: none;
   user-select: none;
   height: 250vh;
   position: relative;
   top: -50vh;
-  margin-bottom: -50vh;
 
   @media (min-width: $viewport-width-desktop) {
-    height: 280vh;
+    height: 140vw;
     top: -70vh;
-    margin-bottom: -70vh;
+  }
+
+  @media (min-width: 1560px) {
+    height: 130vw;
+  }
+
+  @media (min-aspect-ratio: 2/1) {
+    height: 100vw;
+  }
+}
+
+.contentWrapper {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+
+  @media (min-width: $viewport-width-desktop) {
+    position: absolute;
+    height: 100%;
   }
 }
 

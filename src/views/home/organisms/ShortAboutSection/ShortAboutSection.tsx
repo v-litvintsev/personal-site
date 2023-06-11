@@ -12,26 +12,34 @@ export const ShortAboutSection: FC = observer(() => {
   useAnimationSetter(shortAboutSectionAnimation)
 
   return (
-    <section className={styles.sectionWrapper}>
+    <section
+      className={classNames(
+        styles.section,
+        SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES.section
+      )}
+    >
       <div
         className={classNames(
-          styles.content,
-          SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES.wrapper
+          styles.contentWrapper,
+          SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES.contentWrapper
         )}
       >
-        <div
-          className={classNames(
-            styles.text,
-            SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES.text
-          )}
-        >
-          {splitAboutTextIntoElements(
-            SHORT_ABOUT_TEXT,
-            classNames(
-              styles.word,
-              SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES.word
-            )
-          )}
+      {/* <div style={{width:100,height:100,background:'#000'}}></div> */}
+        <div className={styles.content}>
+          <div
+            className={classNames(
+              styles.text,
+              SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES.text
+            )}
+          >
+            {splitAboutTextIntoElements(
+              SHORT_ABOUT_TEXT,
+              classNames(
+                styles.word,
+                SHORT_ABOUT_SECTION_ANIMATION_CLASSNAMES.word
+              )
+            )}
+          </div>
         </div>
       </div>
     </section>

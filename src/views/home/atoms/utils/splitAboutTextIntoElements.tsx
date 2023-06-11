@@ -1,4 +1,6 @@
+import classNames from 'classnames'
 import { ReactElement } from 'react'
+import { aboutTextWordsWidthSetter } from './aboutTextWordsWidthSetter'
 
 export const splitAboutTextIntoElements = (
   inputString: string,
@@ -9,7 +11,10 @@ export const splitAboutTextIntoElements = (
   return (
     <>
       {wordsArray.map((word, index) => (
-        <span key={index} className={wordClassName}>
+        <span
+          key={index}
+          className={classNames(wordClassName, aboutTextWordsWidthSetter(word))}
+        >
           {word}{' '}
         </span>
       ))}
