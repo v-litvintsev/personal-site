@@ -28,7 +28,10 @@ export const OTHER_LANGUAGE_LINK = {
   path: 'ru.vlitvintsev.space',
 }
 
-export const MY_MAIL = 'hello@vlitvintsev.space'
+export const MY_MAIL = {
+  visible: 'hello@vlitvintsev.space',
+  actual: 'vl.litvintsev@yandex.ru',
+}
 
 export const CONTACT_TEXT = 'get in touch'
 

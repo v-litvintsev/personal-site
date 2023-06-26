@@ -15,12 +15,12 @@ export const Contacts: FC = () => (
       <FooterBgText />
     </div>
     <a
-      href={`mailto:${MY_MAIL}`}
+      href={`mailto:${MY_MAIL.actual}`}
       target="_blank"
       rel="noopener noreferrer"
       className={styles.mailLink}
     >
-      <span className={styles.mailText}>{MY_MAIL}</span>
+      <span className={styles.mailText}>{MY_MAIL.visible}</span>
       <span className={styles.mailDecors}>
         <span className={classNames(styles.mailDecor, styles.mailDecor_1)} />
         <span className={classNames(styles.mailDecor, styles.mailDecor_2)} />
@@ -30,12 +30,12 @@ export const Contacts: FC = () => (
       <div className={styles.contactLinks}>
         <h3 className={styles.contactLinksHeader}>{CONTACT_TEXT}:</h3>
         <a
-          href={`mailto:${MY_MAIL}`}
+          href={`mailto:${MY_MAIL.actual}`}
           target="_blank"
           rel="noopener noreferrer"
           className={classNames(styles.inlineMailLink, styles.contactLink)}
         >
-          <span className={styles.contactLinkText}>{MY_MAIL}</span>
+          <span className={styles.contactLinkText}>{MY_MAIL.visible}</span>
           <span className={styles.contactLinkDecor} />
         </a>
         {CONTACT_LINKS.map(({ link, name }) => (

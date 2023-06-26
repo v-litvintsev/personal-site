@@ -105,10 +105,10 @@ export const AttractiveNotification: FC = () => {
           </p>
           <p className={styles.messageText}>Tell me about your project</p>
           <div className={styles.messageMail}>
-            <a href={`mailto:${MY_MAIL}`}>
+            <a href={`mailto:${MY_MAIL.actual}`}>
               <MailLinkIcon />
               <span className={styles.messageMailText}>
-                {MY_MAIL}
+                {MY_MAIL.visible}
                 <span className={styles.messageMailDecor} />
               </span>
             </a>
