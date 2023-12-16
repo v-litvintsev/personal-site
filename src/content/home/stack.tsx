@@ -2,7 +2,7 @@ import { BackendBgTextSvg } from '../../assets/svgs/bg-text/stack/BackendBgTextS
 import { FrontendBgTextSvg } from '../../assets/svgs/bg-text/stack/FrontendBgTextSvg'
 import { GSAPLogoSvg } from '../../assets/svgs/stack/GSAPLogoSvg'
 import { MobxLogoSvg } from '../../assets/svgs/stack/MobxLogoSvg'
-import { MongoDBLogoSvg } from '../../assets/svgs/stack/MongoDBLogoSvg'
+import { StrapiLogoSvg } from '../../assets/svgs/stack/StrapiLogoSvg'
 import { NestJsLogoSvg } from '../../assets/svgs/stack/NestJsLogoSvg'
 import { NextJsLogoSvg } from '../../assets/svgs/stack/NextJsLogoSvg'
 import { TelegrafJsLogoSvg } from '../../assets/svgs/stack/TelegrafJsLogoSvg'
@@ -40,9 +40,9 @@ export const STACK_TECHNOLOGIES: IStackTechnologies = {
         icon: <NestJsLogoSvg />,
       },
       {
-        name: 'mongodb',
-        siteLink: 'https://www.mongodb.com/',
-        icon: <MongoDBLogoSvg />,
+        name: 'Strapi',
+        siteLink: 'https://strapi.io/',
+        icon: <StrapiLogoSvg />,
       },
       {
         name: 'telegraf js',
