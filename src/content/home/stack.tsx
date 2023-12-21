@@ -1,12 +1,12 @@
 import { BackendBgTextSvg } from '../../assets/svgs/bg-text/stack/BackendBgTextSvg'
 import { FrontendBgTextSvg } from '../../assets/svgs/bg-text/stack/FrontendBgTextSvg'
 import { GSAPLogoSvg } from '../../assets/svgs/stack/GSAPLogoSvg'
-import { MobxLogoSvg } from '../../assets/svgs/stack/MobxLogoSvg'
 import { StrapiLogoSvg } from '../../assets/svgs/stack/StrapiLogoSvg'
 import { NestJsLogoSvg } from '../../assets/svgs/stack/NestJsLogoSvg'
 import { NextJsLogoSvg } from '../../assets/svgs/stack/NextJsLogoSvg'
 import { TelegrafJsLogoSvg } from '../../assets/svgs/stack/TelegrafJsLogoSvg'
 import { IStackTechnologies } from '../../types/content'
+import { ThreeJsLogoSvg } from '../../assets/svgs/stack/ThreeJsLogoSvg'
 
 export const STACK_SECTION_TITLE = 'technologies stack'
 
@@ -20,9 +20,9 @@ export const STACK_TECHNOLOGIES: IStackTechnologies = {
         icon: <NextJsLogoSvg />,
       },
       {
-        name: 'mobx',
+        name: 'three js',
         siteLink: 'https://mobx.js.org/README.html',
-        icon: <MobxLogoSvg />,
+        icon: <ThreeJsLogoSvg />,
       },
       {
         name: 'gsap',

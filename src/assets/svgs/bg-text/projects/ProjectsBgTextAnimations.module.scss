@@ -34,6 +34,24 @@
   }
 }
 
+@keyframes daigo-text-animation-reversed {
+  from {
+    transform: translateX(-25.58%);
+  }
+  to {
+    transform: translateX(25%);
+  }
+}
+
+@keyframes apexy-text-animation-reversed {
+  from {
+    transform: translateX(-25.29%);
+  }
+  to {
+    transform: translateX(25%);
+  }
+}
+
 .timingweb {
   animation: timingweb-text-animation-reversed 23s linear infinite reverse;
 }
@@ -55,4 +73,12 @@
 
 .ray {
   animation: ray-text-animation-reversed 17s linear infinite reverse;
+}
+
+.daigo {
+  animation: daigo-text-animation-reversed 17s linear infinite reverse;
+}
+
+.apexy {
+  animation: apexy-text-animation-reversed 17s linear infinite reverse;
 }
